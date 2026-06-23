@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>We With All– Learn AI | Get Hired | Launch Startups</title>
+    <link id="theme-style" rel="stylesheet" href="theme-light.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="logobg.png" rel="icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <!-- Background orbs -->
+    <div class="bg-orbs">
+        <div class="bg-orb bg-orb--1"></div>
+        <div class="bg-orb bg-orb--2"></div>
+        <div class="bg-orb bg-orb--3"></div>
+        <div class="bg-orb bg-orb--4"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="navbar">
+        <div class="nav__inner container">
+            <a href="index.html" class="nav__logo">
+               <img width="30" src="logobg.png" alt="" style="background: transparent;">
+                We With All 
+            </a>
+            <ul class="nav__links" id="navLinks">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#syllabus">Syllabus</a></li>
+                <li><a href="#pathways">Career Paths</a></li>
+                <li><a href="v2v.html">Products</a></li>
+                <li><a href="startup-launchpad.html">Startup Launchpad</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact" class="nav__cta">Get Started</a></li>
+                <li><button id="themeToggle" class="btn--theme" aria-label="Switch theme">🌓</button></li>
+            </ul>
+            <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+<div style="height: 70px;" class="mobile-spacer"></div>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <canvas id="heroCanvas"></canvas>
+        <div class="hero__content container">
+            <div class="hero__badge">
+                <span class="hero__badge-dot"></span> India's First Complete Career Ecosystem
+            </div>
+            <h1 class="hero__title">
+                Master AI/ML.<br>
+                <span class="text-gradient">Get Hired</span> or <span class="text-gradient">Launch Your Startup</span>
+            </h1>
+            <p class="hero__desc">
+                We don't just teach – we guarantee your success. Get placed in top companies or we'll guide you
+                from company registration to raising your first funding round. Your success is our mission.
+            </p>
+            <div class="hero__buttons">
+                <a href="#syllabus" class="btn btn--primary">View Full Syllabus</a>
+                <a href="startup-launchpad.html" class="btn btn--outline">Startup Launchpad 🚀</a>
+            </div>
+            <div class="hero__stats-mini">
+                <div class="hero__stat-mini">
+                    <span class="hero__stat-number">5,000+</span>
+                    <span class="hero__stat-label">Students Trained</span>
+                </div>
+                <div class="hero__stat-mini">
+                    <span class="hero__stat-number">92%</span>
+                    <span class="hero__stat-label">Placement Rate</span>
+                </div>
+                <div class="hero__stat-mini">
+                    <span class="hero__stat-number">150+</span>
+                    <span class="hero__stat-label">Startups Launched</span>
+                </div>
+                <div class="hero__stat-mini">
+                    <span class="hero__stat-number">₹50Cr+</span>
+                    <span class="hero__stat-label">Funding Raised by Students</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="section section--alt" id="services">
+        <div class="container">
+            <span class="section__label reveal">What We Offer</span>
+            <h2 class="section__title reveal">End-to-End <span class="text-gradient">Career Solutions</span></h2>
+            <p class="section__subtitle reveal">
+                From learning cutting-edge AI to landing your dream job or launching a funded startup –
+                we're with you every step of the way.
+            </p>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-card__icon service-card__icon--teal">🧠</div>
+                    <h3 class="service-card__title">AI/ML Training</h3>
+                    <p class="service-card__desc">Comprehensive curriculum covering Python, Machine Learning, Deep Learning, NLP, Computer Vision, Generative AI, and MLOps with 25+ real industry projects.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-card__icon service-card__icon--blue">💼</div>
+                    <h3 class="service-card__title">Placement Guarantee</h3>
+                    <p class="service-card__desc">Dedicated placement cell, resume building, LinkedIn optimization, mock interviews with hiring managers, and referrals to 200+ partner companies until you get hired.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-card__icon service-card__icon--purple">🏢</div>
+                    <h3 class="service-card__title">Startup Incorporation</h3>
+                    <p class="service-card__desc">Complete assistance with company registration (Pvt Ltd, LLP, OPC), GST, MSME, trademark filing, bank account setup, and all legal documentation.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-card__icon service-card__icon--teal">💰</div>
+                    <h3 class="service-card__title">Fundraising Support</h3>
+                    <p class="service-card__desc">Pitch deck creation, financial modeling, valuation guidance, investor database access, and warm introductions to angel investors and VCs.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-card__icon service-card__icon--blue">👨‍🏫</div>
+                    <h3 class="service-card__title">1-on-1 Mentorship</h3>
+                    <p class="service-card__desc">Weekly sessions with industry mentors from Google, Microsoft, Amazon, and successful startup founders who've raised millions in funding.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-card__icon service-card__icon--purple">📋</div>
+                    <h3 class="service-card__title">Legal & Compliance</h3>
+                    <p class="service-card__desc">Co-founder agreements, ESOP structuring, term sheet negotiation, shareholder agreements, NDAs, and ongoing compliance support for your startup.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comprehensive Course Syllabus (NEW) -->
+    <section class="section" id="syllabus">
+        <div class="container">
+            <span class="section__label reveal">Curriculum</span>
+            <h2 class="section__title reveal">Complete <span class="text-gradient">AI/ML Syllabus</span></h2>
+            <p class="section__subtitle reveal">
+                6-month intensive program covering everything from Python basics to cutting-edge Generative AI.
+                Updated monthly with the latest industry trends.
+            </p>
+
+            <!-- Module 1 -->
+            <div class="syllabus-module reveal">
+                <button class="syllabus-module__header">
+                    <div class="syllabus-module__left">
+                        <span class="syllabus-module__number">Module 1</span>
+                        <h3>Python & Data Science Foundations</h3>
+                    </div>
+                    <span class="syllabus-module__duration">4 Weeks</span>
+                    <span class="syllabus-module__icon">+</span>
+                </button>
+                <div class="syllabus-module__content">
+                    <div class="syllabus-topics">
+                        <div class="syllabus-topic">
+                            <h4>Python Programming</h4>
+                            <ul>
+                                <li>Data types, control flow, functions, OOP</li>
+                                <li>List comprehensions, lambda functions, decorators</li>
+                                <li>File handling, exception handling, modules & packages</li>
+                                <li>Working with APIs, JSON, and web scraping (BeautifulSoup, Scrapy)</li>
+                            </ul>
+                        </div>
+                        <div class="syllabus-topic">
+                            <h4>Data Science Libraries</h4>
+                            <ul>
+                                <li>NumPy: Arrays, vectorization, broadcasting</li>
+                                <li>Pandas: DataFrames, data cleaning, merging, groupby</li>
+                                <li>Matplotlib & Seaborn: Data visualization, plots, dashboards</li>
+                                <li>Plotly: Interactive visualizations and dashboards</li>
+                            </ul>
+                        </div>
+                        <div class="syllabus-topic">
+                            <h4>Statistics & Mathematics</h4>
+                            <ul>
+                                <li>Descriptive & inferential statistics</li>
+                                <li>Probability distributions, hypothesis testing</li>
+                                <li>Linear algebra: vectors, matrices, eigenvalues</li>
+                                <li>Calculus: derivatives, gradients, optimization</li>
+                            </ul>
+                        </div>
+                        <div class="syllabus-topic">
+                            <h4>SQL & Databases</h4>
+                            <ul>
+                                <li>SQL queries, joins, subqueries, window functions</li>
+                                <li>PostgreSQL, MySQL, MongoDB basics</li>
+                                <li>Database design and normalization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 2 -->
+            <div class="syllabus-module reveal">
+                <button class="syllabus-module__header">
+                    <div class="syllabus-module__left">
+                        <span class="syllabus-module__number">Module 2</span>
+                        <h3>Machine Learning Mastery</h3>
+                    </div>
+                    <span class="syllabus-module__duration">6 Weeks</span>
+                    <span class="syllabus-module__icon">+</span>
+                </button>
+                <div class="syllabus-module__content">
+                    <div class="syllabus-topics">
+                        <div class="syllabus-topic">
+                            <h4>Supervised Learning</h4>
+                            <ul>
+                                <li>Linear Regression, Polynomial Regression</li>
+                                <li>Logistic Regression, Decision Trees, Random Forest</li>
+                                <li>SVM, KNN, Naive Bayes</li>
+                                <li>Gradient Boosting: XGBoost, LightGBM, CatBoost</li>
+                                <li>Ensemble methods: Bagging, Boosting, Stacking</li>
+                            </ul>
+                        </div>
+                        <div class="syllabus-topic">
+                            <h4>Unsupervised Learning</h4>
+                            <ul>
+                                <li>K-Means, Hierarchical Clustering, DBSCAN</li>
+                                <li>PCA, t-SNE, UMAP for dimensionality reduction</li>
+                                <li>Anomaly detection: Isolation Forest, LOF</li>
+                                <li>Association Rules: Apriori, FP-Growth</li>
+                            </ul>
+                        </div>
+                        <div class="syllabus-topic">
+                            <h4>Feature Engineering</h4>
+                            <ul>
+                                <li>Feature selection: RFE, feature importance, correlation</li>
+                                <li>Feature extraction: PCA, LDA, autoencoders</li>
+                                <li>Handling missing data, outliers, imbalanced datasets</li>
+                                <li>Cross-validation, hyperparameter tuning (GridSearch, Optuna)</li>
+                            </ul>
+                        </div>
+                        <div class="syllabus-topic">
+                            <h4>Model Deployment</h4>
+                            <ul>
+                                <li>MLflow for experiment tracking</li>
+                                <li>Model serialization: Pickle, Joblib, ONNX</li>
+                                <li>Building REST APIs with FastAPI</li>
+                                <li>Docker containerization for ML models</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 3 -->
+            <div class="syllabus-module reveal">
+                <button class="syllabus-module__header">
+                    <div class="syllabus-module__left">
+                        <span class="syllabus-module__number">Module 3</span>
+                        <h3>Deep Learning & Neural Networks</h3>
+                    </div>
+                    <span class="syllabus-module__duration">5 Weeks</span>
+                    <span class="syllabus-module__icon">+</span>
+                </button>
+                <div class="syllabus-module__content">
+                    <div class="syllabus-topics">
+                        <div class="syllabus-topic">
+                            <h4>Neural Network Fundamentals</h4>
+                            <ul>
+                                <li>Perceptrons, activation functions, backpropagation</li>
+                                <li>TensorFlow 2.x & Keras, PyTorch</li>
+                                <li>Optimizers: SGD, Adam, RMSprop, AdamW</li>
+                                <li>Batch normalization, dropout, weight initialization</li>
+                                <li>Transfer learning & fine-tuning pre-trained models</li>
+                            </ul>
+                        </div>
+                        <div class="syllabus-topic">
+                            <h4>CNN - Computer Vision</h4>
+                            <ul>
+                                <li>CNN architectures: LeNet, AlexNet, VGG, ResNet, Inception</li>
+                                <li>Object detection: YOLOv8, Faster R-CNN, SSD</li>
+                                <li>Image segmentation: U-Net, Mask R-CNN</li>
+                                <li>GANs: DCGAN, StyleGAN, CycleGAN</li>
+                                <li>Vision Transformers (ViT), Stable Diffusion basics</li>
+                            </ul>
+                        </div>
+                        <div class="syllabus-topic">
+                            <h4>RNN & Sequence Models</h4>
+                            <ul>
+                                <li>RNN, LSTM, GRU architectures</li>
+                                <li>Bidirectional RNNs, stacked LSTMs</li>
+                                <li>Time series forecasting with deep learning</li>
+                                <li>Attention mechanisms, seq2seq models</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 4 -->
+            <div class="syllabus-module reveal">
+                <button class="syllabus-module__header">
+                    <div class="syllabus-module__left">
+                        <span class="syllabus-module__number">Module 4</span>
+                        <h3>NLP & Large Language Models</h3>
+                    </div>
+                    <span class="syllabus-module__duration">5 Weeks</span>
+                    <span class="syllabus-module__icon">+</span>
+                </button>
+                <div class="syllabus-module__content">
+                    <div class="syllabus-topics">
+                        <div class="syllabus-topic">
+                            <h4>Traditional NLP</h4>
+                            <ul>
+                                <li>Text preprocessing: tokenization, stemming, lemmatization</li>
+                                <li>Word embeddings: Word2Vec, GloVe, FastText</li>
+                                <li>TF-IDF, Bag of Words, N-grams</li>
+                                <li>Named Entity Recognition (NER), POS tagging</li>
+                                <li>Sentiment analysis, text classification</li>
+                            </ul>
+                        </div>
+                        <div class="syllabus-topic">
+                            <h4>Transformers & LLMs</h4>
+                            <ul>
+                                <li>Transformer architecture deep dive</li>
+                                <li>BERT, RoBERTa, DistilBERT for understanding</li>
+                                <li>GPT-3.5, GPT-4, Claude, Gemini architecture</li>
+                                <li>Fine-tuning LLMs with LoRA, QLoRA</li>
+                                <li>Prompt engineering: Chain-of-Thought, Few-shot, RAG</li>
+                            </ul>
+                        </div>
+                        <div class="syllabus-topic">
+                            <h4>Advanced NLP Applications</h4>
+                            <ul>
+                                <li>Building chatbots with LangChain & LlamaIndex</li>
+                                <li>Vector databases: Pinecone, Weaviate, ChromaDB</li>
+                                <li>Semantic search & document Q&A systems</li>
+                                <li>Text summarization, translation, text generation</li>
+                                <li>Hugging Face ecosystem: Transformers, Datasets, Spaces</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 5 -->
+            <div class="syllabus-module reveal">
+                <button class="syllabus-module__header">
+                    <div class="syllabus-module__left">
+                        <span class="syllabus-module__number">Module 5</span>
+                        <h3>Generative AI & Latest Tech (2025-26)</h3>
+                    </div>
+                    <span class="syllabus-module__duration">4 Weeks</span>
+                    <span class="syllabus-module__icon">+</span>
+                </button>
+                <div class="syllabus-module__content">
+                    <div class="syllabus-topics">
+                        <div class="syllabus-topic">
+                            <h4>Generative AI</h4>
+                            <ul>
+                                <li>Stable Diffusion, DALL-E, Midjourney architecture</li>
+                                <li>Diffusion models: DDPM, DDIM, Latent Diffusion</li>
+                                <li>Text-to-image, image-to-image, inpainting</li>
+                                <li>AI video generation: RunwayML, Pika, Sora basics</li>
+                                <li>Music generation: MusicLM, AudioCraft</li>
+                            </ul>
+                        </div>
+                        <div class="syllabus-topic">
+                            <h4>AI Agents & Autonomous Systems</h4>
+                            <ul>
+                                <li>AutoGPT, BabyAGI, CrewAI frameworks</li>
+                                <li>Multi-agent systems and orchestration</li>
+                                <li>Tool use, function calling, API integration</li>
+                                <li>Building autonomous AI workflows</li>
+                                <li>Agentic RAG: Advanced retrieval augmented generation</li>
+                            </ul>
+                        </div>
+                        <div class="syllabus-topic">
+                            <h4>MLOps & Production AI</h4>
+                            <ul>
+                                <li>Kubernetes for ML workloads</li>
+                                <li>Kubeflow, MLflow, Weights & Biases</li>
+                                <li>CI/CD pipelines for ML models</li>
+                                <li>Model monitoring, drift detection, A/B testing</li>
+                                <li>Cloud deployment: AWS SageMaker, GCP Vertex AI, Azure ML</li>
+                            </ul>
+                        </div>
+                        <div class="syllabus-topic">
+                            <h4>Edge AI & TinyML</h4>
+                            <ul>
+                                <li>Model optimization: quantization, pruning, distillation</li>
+                                <li>TensorFlow Lite, ONNX Runtime, OpenVINO</li>
+                                <li>Deploying models on mobile & IoT devices</li>
+                                <li>Edge computing architectures</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 6 -->
+            <div class="syllabus-module reveal">
+                <button class="syllabus-module__header">
+                    <div class="syllabus-module__left">
+                        <span class="syllabus-module__number">Module 6</span>
+                        <h3>Capstone Projects & Career Prep</h3>
+                    </div>
+                    <span class="syllabus-module__duration">4 Weeks</span>
+                    <span class="syllabus-module__icon">+</span>
+                </button>
+                <div class="syllabus-module__content">
+                    <div class="syllabus-topics">
+                        <div class="syllabus-topic">
+                            <h4>Industry Projects (Choose 3)</h4>
+                            <ul>
+                                <li>Build a production-grade RAG chatbot for legal/medical domain</li>
+                                <li>Real-time object detection system for autonomous vehicles</li>
+                                <li>AI-powered stock trading bot with sentiment analysis</li>
+                                <li>Healthcare diagnosis system using medical imaging</li>
+                                <li>Recommendation engine for e-commerce (like Amazon)</li>
+                                <li>Generative AI content creation platform</li>
+                                <li>Fraud detection system for banking transactions</li>
+                                <li>Multi-modal AI: Image + Text understanding system</li>
+                            </ul>
+                        </div>
+                        <div class="syllabus-topic">
+                            <h4>Placement Preparation</h4>
+                            <ul>
+                                <li>Resume building workshop (ATS-friendly format)</li>
+                                <li>LinkedIn profile optimization</li>
+                                <li>GitHub portfolio creation</li>
+                                <li>Technical interview preparation (DSA + ML theory)</li>
+                                <li>5 mock interviews with industry professionals</li>
+                                <li>Salary negotiation strategies</li>
+                            </ul>
+                        </div>
+                        <div class="syllabus-topic">
+                            <h4>Startup Launch Preparation</h4>
+                            <ul>
+                                <li>Identifying market opportunities in AI</li>
+                                <li>Building an MVP in 2 weeks</li>
+                                <li>Creating investor-ready pitch decks</li>
+                                <li>Financial modeling for AI startups</li>
+                                <li>Legal basics for tech founders</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Download CTA -->
+            <div class="syllabus-cta reveal">
+                <h3>Want the detailed syllabus PDF?</h3>
+                <p>Download our complete 50-page curriculum guide with project details, tools, and learning outcomes.</p>
+                <a href="#contact" class="btn btn--primary">Get Full Syllabus</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Pathways (Dual Track) -->
+    <section class="section section--alt" id="pathways">
+        <div class="container">
+            <span class="section__label reveal">Our Promise</span>
+            <h2 class="section__title reveal">Two Career Paths. <span class="text-gradient">One Goal.</span></h2>
+            <p class="section__subtitle reveal">
+                Whether you dream of a high-paying AI job or building your own startup, we guarantee your success.
+            </p>
+            <div class="pathways-grid">
+                <div class="pathway-card pathway-card--job reveal">
+                    <div class="pathway-card__icon">💼</div>
+                    <h3 class="pathway-card__title">Placement Track</h3>
+                    <p class="pathway-card__desc">Get hired by top tech companies with our guaranteed placement program.</p>
+                    <ul class="pathway-card__list">
+                        <li>Industry-vetted AI/ML curriculum</li>
+                        <li>ATS-optimized resume building</li>
+                        <li>LinkedIn & GitHub portfolio creation</li>
+                        <li>5 mock interviews with FAANG engineers</li>
+                        <li>Direct referrals to 200+ partner companies</li>
+                        <li>Salary negotiation workshop</li>
+                        <li>Post-placement support for 6 months</li>
+                    </ul>
+                    <div class="pathway-card__companies">
+                        <span>Our students work at:</span>
+                        <div class="company-logos">
+                            <span>Google</span>
+                            <span>Microsoft</span>
+                            <span>Amazon</span>
+                            <span>TCS</span>
+                            <span>Infosys</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pathway-card pathway-card--startup reveal">
+                    <div class="pathway-card__icon">🚀</div>
+                    <h3 class="pathway-card__title">Startup Track</h3>
+                    <p class="pathway-card__desc">Launch and fund your own AI startup with end-to-end support.</p>
+                    <ul class="pathway-card__list">
+                        <li>Company registration (Pvt Ltd/LLP/OPC)</li>
+                        <li>GST, MSME, trademark, and FSSAI filing</li>
+                        <li>Professional pitch deck design</li>
+                        <li>Financial modeling & valuation</li>
+                        <li>Investor database (500+ angels & VCs)</li>
+                        <li>Warm introductions to investors</li>
+                        <li>12 months legal & compliance support</li>
+                    </ul>
+                    <div class="pathway-card__companies">
+                        <span>Our founders raised from:</span>
+                        <div class="company-logos">
+                            <span>Sequoia</span>
+                            <span>Y Combinator</span>
+                            <span>Accel</span>
+                            <span>Lightspeed</span>
+                            <span>Blume</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Journey Roadmap -->
+    <section class="section" id="roadmap">
+        <div class="container">
+            <span class="section__label reveal">Your Journey</span>
+            <h2 class="section__title reveal">From <span class="text-gradient">Learning</span> to <span class="text-gradient">Earning</span></h2>
+            <div class="roadmap reveal">
+                <div class="roadmap-step">
+                    <div class="roadmap-step__number">01</div>
+                    <h4>Enroll & Learn</h4>
+                    <p>Master AI/ML with hands-on projects and 1-on-1 mentorship</p>
+                </div>
+                <div class="roadmap-connector"></div>
+                <div class="roadmap-step">
+                    <div class="roadmap-step__number">02</div>
+                    <h4>Build Portfolio</h4>
+                    <p>Create 25+ real-world projects that impress employers & investors</p>
+                </div>
+                <div class="roadmap-connector"></div>
+                <div class="roadmap-step">
+                    <div class="roadmap-step__number">03</div>
+                    <h4>Choose Your Path</h4>
+                    <p>Decide between placement preparation or startup launch</p>
+                </div>
+                <div class="roadmap-connector"></div>
+                <div class="roadmap-step">
+                    <div class="roadmap-step__number">04</div>
+                    <h4>Guaranteed Success</h4>
+                    <p>Land your dream job or launch & fund your own company</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section section--alt" id="pricing">
+        <div class="container">
+            <span class="section__label reveal">Pricing</span>
+            <h2 class="section__title reveal">Invest in <span class="text-gradient">Your Future</span></h2>
+            <p class="section__subtitle reveal">
+                All programs include our dual-track guarantee. If you don't get placed, we help you launch a startup.
+            </p>
+            <div class="pricing-grid reveal">
+                <div class="pricing-card">
+                    <h3 class="pricing-name">AI Professional</h3>
+                    <div class="pricing-price">₹49,999<span>/course</span></div>
+                    <ul class="pricing-features">
+                        <li>6-month AI/ML training</li>
+                        <li>25+ industry projects</li>
+                        <li>Placement preparation</li>
+                        <li>Resume & LinkedIn optimization</li>
+                        <li>3 mock interviews</li>
+                    </ul>
+                    <a href="#contact" class="btn btn--outline">Enroll Now</a>
+                </div>
+                <div class="pricing-card pricing-card--popular">
+                    <span class="pricing-badge">Most Popular</span>
+                    <h3 class="pricing-name">Career Guarantee</h3>
+                    <div class="pricing-price">₹79,999<span>/program</span></div>
+                    <ul class="pricing-features">
+                        <li>Everything in AI Professional</li>
+                        <li><strong>Placement guarantee or startup support</strong></li>
+                        <li>Company registration assistance</li>
+                        <li>Fundraising & pitch deck training</li>
+                        <li>5 mock interviews</li>
+                        <li>12-month mentorship access</li>
+                        <li>Post-placement support</li>
+                    </ul>
+                    <a href="#contact" class="btn btn--primary">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <h3 class="pricing-name">Startup Launchpad</h3>
+                    <div class="pricing-price">₹1,49,999<span>/all-inclusive</span></div>
+                    <ul class="pricing-features">
+                        <li>Complete AI training + incorporation</li>
+                        <li>Legal & compliance for 1 year</li>
+                        <li>Investor introductions</li>
+                        <li>Co-founder matching</li>
+                        <li>Pitch deck & financial model</li>
+                        <li>3 months free co-working space</li>
+                        <li>₹10L+ cloud credits</li>
+                    </ul>
+                    <a href="#contact" class="btn btn--outline">Launch Your Startup</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+<section class="section" id="team">
+    <div class="container">
+        <span class="section__label reveal">Our Team</span>
+        <h2 class="section__title reveal">Meet Your <span class="text-gradient">Mentors</span></h2>
+        <p class="section__subtitle reveal">
+            Learn from industry veterans who've built AI systems at Google, Microsoft, and successful startups.
+        </p>
+        <div class="team-grid reveal">
+            <!-- Member 1: VedhaShree - CEO -->
+            <div class="team-card">
+                <div class="team-card__image-wrap">
+                    <img src="Vedha.png" alt="VedhaShree" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                    <div class="team-card__image-placeholder" style="display:none;">VS</div>
+                </div>
+                <div class="team-card__info-base">
+                    <h3 class="team-card__name">VedhaShree</h3>
+                    <p class="team-card__role">Chief Executive Officer (CEO)</p>
+                </div>
+                <div class="team-card__detail-overlay">
+                    <p class="team-card__bio">Visionary leader driving the overall strategy and growth of wewithall. With 12+ years in AI/ML and experience at Google, VedhaShree ensures every student receives world-class education and career support. Passionate about democratizing AI education and building India's next generation of tech leaders.</p>
+                    <div class="team-card__tags">
+                        <span class="team-card__tag">AI Strategy</span>
+                        <span class="team-card__tag">Fundraising</span>
+                        <span class="team-card__tag">Leadership</span>
+                    </div>
+                    <div class="team-card__social">
+                        <a href="#">🔗 LinkedIn</a>
+                        <a href="#">🐦 Twitter</a>
+                    </div>
+                </div>
+                <div class="team-card__glow-line"></div>
+            </div>
+
+            <!-- Member 2: KD Nimitha - CTO -->
+            <div class="team-card">
+                <div class="team-card__image-wrap">
+                    <img src="nimitha.png" alt="KD Nimitha" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                    <div class="team-card__image-placeholder" style="display:none;">KN</div>
+                </div>
+                <div class="team-card__info-base">
+                    <h3 class="team-card__name">KD Nimitha</h3>
+                    <p class="team-card__role">Chief Technology Officer (CTO)</p>
+                </div>
+                <div class="team-card__detail-overlay">
+                    <p class="team-card__bio">Technology architect behind wewithall's AI curriculum and learning platform. PhD in ML from IIT Delhi with deep expertise in NLP and Computer Vision. Has placed 2000+ students in FAANG companies through rigorous technical training and interview preparation.</p>
+                    <div class="team-card__tags">
+                        <span class="team-card__tag">Placements</span>
+                        <span class="team-card__tag">NLP</span>
+                        <span class="team-card__tag">Computer Vision</span>
+                    </div>
+                    <div class="team-card__social">
+                        <a href="#">🔗 LinkedIn</a>
+                        <a href="#">🐦 Twitter</a>
+                    </div>
+                </div>
+                <div class="team-card__glow-line"></div>
+            </div>
+
+            <!-- Member 3: Aayan - CMO -->
+            <div class="team-card">
+                <div class="team-card__image-wrap">
+                    <img src="aayan.png" alt="Aayan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                    <div class="team-card__image-placeholder" style="display:none;">AA</div>
+                </div>
+                <div class="team-card__info-base">
+                    <h3 class="team-card__name">Aayan</h3>
+                    <p class="team-card__role">Chief Marketing Officer (CMO)</p>
+                </div>
+                <div class="team-card__detail-overlay">
+                    <p class="team-card__bio">Marketing strategist and corporate lawyer who drives wewithall's brand presence and student acquisition. Has registered 500+ companies and helped startups with legal compliance and fundraising. Expert in creating compelling narratives that attract top talent and investors.</p>
+                    <div class="team-card__tags">
+                        <span class="team-card__tag">Legal</span>
+                        <span class="team-card__tag">Compliance</span>
+                        <span class="team-card__tag">Fundraising</span>
+                    </div>
+                    <div class="team-card__social">
+                        <a href="#">🔗 LinkedIn</a>
+                        <a href="#">🐦 Twitter</a>
+                    </div>
+                </div>
+                <div class="team-card__glow-line"></div>
+            </div>
+
+            <!-- Member 4: Shinchan - CCO -->
+            <div class="team-card">
+                <div class="team-card__image-wrap">
+                    <img src="Shinchan.png" alt="Shinchan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                    <div class="team-card__image-placeholder" style="display:none;">SH</div>
+                </div>
+                <div class="team-card__info-base">
+                    <h3 class="team-card__name">Shinchan</h3>
+                    <p class="team-card__role">Chief Creative Officer (CCO)</p>
+                </div>
+                <div class="team-card__detail-overlay">
+                    <p class="team-card__bio">Creative visionary and ex-VC at Sequoia Capital with 6+ years of startup investment experience. Has closed ₹100Cr+ in funding deals. Brings creative thinking to wewithall's programs, helping founders craft winning pitch decks and connect with the right investors.</p>
+                    <div class="team-card__tags">
+                        <span class="team-card__tag">VC Network</span>
+                        <span class="team-card__tag">Pitch Coach</span>
+                        <span class="team-card__tag">Creative Strategy</span>
+                    </div>
+                    <div class="team-card__social">
+                        <a href="#">🔗 LinkedIn</a>
+                        <a href="#">🐦 Twitter</a>
+                    </div>
+                </div>
+                <div class="team-card__glow-line"></div>
+            </div>
+
+            <!-- Member 5: Arjun Mehta - CFO -->
+            <div class="team-card">
+                <div class="team-card__image-wrap">
+                    <img src="divya.png" alt="Arjun Mehta" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                    <div class="team-card__image-placeholder" style="display:none;">AM</div>
+                </div>
+                <div class="team-card__info-base">
+                    <h3 class="team-card__name">Divya shree</h3>
+                    <p class="team-card__role">Chief Financial Officer (CFO)</p>
+                </div>
+                <div class="team-card__detail-overlay">
+                    <p class="team-card__bio">Financial expert and Chartered Accountant with 15+ years in investment banking at Goldman Sachs and Morgan Stanley. Manages wewithall's financial strategy and helps students understand startup finance, valuation, and fundraising. Expert in financial modeling and due diligence.</p>
+                    <div class="team-card__tags">
+                        <span class="team-card__tag">Financial Modeling</span>
+                        <span class="team-card__tag">Valuation</span>
+                        <span class="team-card__tag">Investment Banking</span>
+                    </div>
+                    <div class="team-card__social">
+                        <a href="#">🔗 LinkedIn</a>
+                        <a href="#">🐦 Twitter</a>
+                    </div>
+                </div>
+                <div class="team-card__glow-line"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Partners -->
+    <section class="section section--alt" id="partners">
+        <div class="container">
+            <span class="section__label reveal">Our Partners</span>
+            <h2 class="section__title reveal">Trusted by <span class="text-gradient">Industry Leaders</span></h2>
+            <div class="partners-grid reveal">
+                <div class="partner-logo">Google</div>
+                <div class="partner-logo">Microsoft</div>
+                <div class="partner-logo">Amazon</div>
+                <div class="partner-logo">Meta</div>
+                <div class="partner-logo">TCS</div>
+                <div class="partner-logo">Infosys</div>
+                <div class="partner-logo">Sequoia</div>
+                <div class="partner-logo">Y Combinator</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+        <div class="container">
+            <span class="section__label reveal">FAQ</span>
+            <h2 class="section__title reveal">Frequently Asked <span class="text-gradient">Questions</span></h2>
+            <div class="faq-grid reveal">
+                <div class="faq-item">
+                    <button class="faq-question">How does the placement guarantee work? <span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p>If you don't receive a job offer within 6 months of completing the program, we either refund 50% of your fees or help you launch your own startup with full incorporation support. Our placement rate is 92%.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Do I need prior coding experience? <span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p>No! Our program starts from absolute basics. Module 1 covers Python from scratch. Many of our successful students came from non-tech backgrounds like commerce, arts, and biology.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What kind of startups can I launch? <span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p>We support AI/ML-based startups across all sectors – healthcare, fintech, edtech, agritech, SaaS, and more. Our team helps you identify market opportunities and build an MVP.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How do you help with fundraising? <span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p>We provide pitch deck templates, financial modeling tools, access to our investor database of 500+ angels and VCs, and most importantly – warm introductions through our network.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Is the program online or offline? <span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p>We offer both! Our hybrid model includes live online classes, recorded lectures, and optional in-person workshops in Bangalore, Mumbai, and Delhi NCR.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What makes wewithall different from other AI courses? <span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p>Unlike traditional institutes, we don't just teach – we guarantee outcomes. Plus, our startup launchpad is unique. No other institute helps you incorporate a company and raise funding if you choose the entrepreneurial path.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section section--alt" id="contact">
+        <div class="container">
+            <div class="contact-wrapper reveal">
+                <span class="section__label">Get In Touch</span>
+                <h2 class="section__title">Start Your <span class="text-gradient">AI Journey</span> Today</h2>
+                <p style="color:var(--text-secondary); max-width:500px; margin:0 auto 2rem; line-height:1.7;">
+                    Fill the form below and our career counselor will call you within 24 hours to discuss the best path for you.
+                </p>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Full Name *" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Email Address *" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" placeholder="Phone Number" />
+                    </div>
+                    <div class="form-group">
+                        <select id="interest" required>
+                            <option value="">I'm interested in... *</option>
+                            <option value="placement">Getting a Job (Placement Track)</option>
+                            <option value="startup">Launching a Startup</option>
+                            <option value="both">Both – I'm Undecided</option>
+                            <option value="syllabus">Just the Syllabus PDF</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="4" placeholder="Tell us about your background and goals..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary">Submit & Get Free Career Consultation</button>
+                </form>
+                <p style="margin-top:1.5rem;">
+                    <a href="mailto:hello@wewithall.com" class="contact-email">📧 kdnimitha@wewithall.com</a> | 
+                    <a href="tel:+8792381530" class="contact-email">📞 +91 8792381530</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>wewithall</h4>
+                <p>Learn AI. Get Hired. Or Launch Your Startup. We guarantee your success with our dual-track career ecosystem.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#syllabus">Full Syllabus</a></li>
+                    <li><a href="#pathways">Career Paths</a></li>
+                    <li><a href="products.html">AI Products</a></li>
+                    <li><a href="startup-launchpad.html">Startup Launchpad</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>kdnimitha@wewithall.com</p>
+                <p>+91 8792381530</p>
+                <p>Bangalore | Mumbai | Delhi NCR</p>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="footer-social">
+                    <a href="#">LinkedIn</a>
+                    <a href="#">YouTube</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+        </div>
+        <p class="footer-bottom">© 2026 wewithall. All rights reserved. Built with ❤️ for India's future AI leaders.</p>
+    </footer>
+
+    <button class="back-to-top" id="backToTop">↑</button>
+    <script src="script.js"></script>
+</body>
+</html>
