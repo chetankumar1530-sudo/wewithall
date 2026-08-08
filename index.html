@@ -1,836 +1,663 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>We With All– Learn AI | Get Hired | Launch Startups</title>
-    <link id="theme-style" rel="stylesheet" href="theme-light.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="logobg.png" rel="icon">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>We With All — Master AI/ML. Get Hired or Launch Your Startup</title>
+<meta name="description" content="We With All — Learn AI & ML from basic to advanced. Get placed at a top company or launch your own AI startup. 92% placement, 150+ startups launched.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --bg2:#f4f6ff; --card:#ffffff; --card2:#f5f6ff;
+  --purple:#6C3CF0; --purple2:#8f5bff; --cyan:#0e9fd8; --green:#2e9e55;
+  --pink:#e54f9c; --text:#171b33; --muted:#5a6484; --line:rgba(20,24,60,.10);
+  --grad:linear-gradient(135deg,#6C3CF0,#0e9fd8);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+h1,h2,h3,h4{font-family:'JetBrains Mono',monospace;line-height:1.2;letter-spacing:-.01em}
+a{text-decoration:none;color:inherit}
+/* ---- animated background ---- */
+#particle-bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(1200px 800px at 15% -10%,#eee8ff 0%,transparent 55%),radial-gradient(1100px 700px at 110% 20%,#e2f4ff 0%,transparent 55%),linear-gradient(180deg,#ffffff,#f3f5ff)}
+.blob{position:fixed;z-index:-1;border-radius:50%;filter:blur(90px);opacity:.20;animation:float 18s ease-in-out infinite;pointer-events:none}
+.blob.b1{width:520px;height:520px;background:#6C3CF0;top:-160px;left:-120px}
+.blob.b2{width:460px;height:460px;background:#0e8fb0;bottom:-140px;right:-100px;animation-delay:-6s}
+.blob.b3{width:400px;height:400px;background:#58C472;top:40%;left:55%;animation-delay:-12s;opacity:.18}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-30px) scale(1.08)}66%{transform:translate(-30px,25px) scale(.94)}}
+canvas#net{position:fixed;inset:0;z-index:-1;opacity:.50}
+
+.container{max-width:1160px;margin:0 auto;padding:0 22px}
+section{padding:84px 0;position:relative}
+.badge{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--purple);background:rgba(108,60,240,.08);border:1px solid rgba(108,60,240,.22);padding:7px 14px;border-radius:999px;margin-bottom:16px}
+.sec-title{font-size:clamp(28px,4.4vw,44px);font-weight:800;margin-bottom:16px}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--muted);max-width:640px;font-size:17px}
+.center{text-align:center}
+.center .sub{margin:0 auto}
+.reveal{opacity:1;transform:none}
+.reveal.in{animation:fadeUp .7s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:.3s}
+nav.scrolled{background:rgba(255,255,255,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:12px 0;box-shadow:0 8px 30px rgba(20,24,60,.06)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'JetBrains Mono',monospace;font-weight:800;font-size:22px;display:flex;align-items:center;gap:10px}
+.logo .dot{width:34px;height:34px;border-radius:10px;background:var(--grad);display:grid;place-items:center;font-size:17px;font-weight:800;color:#fff;box-shadow:0 6px 20px rgba(108,60,240,.5)}
+.nav-links{display:flex;gap:30px;font-size:15px;font-weight:500}
+.nav-links a{color:var(--muted);transition:.2s}
+.nav-links a:hover{color:#6C3CF0}
+.btn{padding:13px 26px;border-radius:14px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:14.5px;display:inline-flex;align-items:center;gap:9px;border:none;cursor:pointer;transition:.25s;position:relative;overflow:hidden}
+.btn-grad{background:var(--grad);color:#fff;box-shadow:0 10px 30px rgba(108,60,240,.30)}
+.btn-grad:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(108,60,240,.42)}
+.btn-ghost{background:rgba(20,24,60,.05);color:#171b33;border:1px solid rgba(20,24,60,.16)}
+.btn-ghost:hover{background:rgba(108,60,240,.10);transform:translateY(-3px)}
+.menu-btn{display:none;background:#fff;border:1px solid rgba(20,24,60,.16);color:#171b33;font-size:22px;border-radius:10px;padding:4px 12px;cursor:pointer}
+
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;padding:130px 0 80px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
+.hero h1{font-size:clamp(34px,5.4vw,60px);font-weight:800;margin:18px 0 22px}
+.hero .tagline{font-size:19px;color:var(--muted);margin-bottom:34px;max-width:540px}
+.hero .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:42px}
+.trust{display:flex;gap:36px;flex-wrap:wrap}
+.trust .t b{font-family:'JetBrains Mono',monospace;font-size:26px;display:block;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.trust .t span{font-size:13px;color:var(--muted)}
+.float-wrap{position:relative;min-height:420px}
+.float-card{position:absolute;background:rgba(255,255,255,.85);border:1px solid var(--line);backdrop-filter:blur(10px);border-radius:18px;padding:16px 18px;box-shadow:0 20px 50px rgba(20,24,60,.12);animation:float2 7s ease-in-out infinite}
+.float-card .fc-ic{font-size:26px;margin-bottom:8px}
+.float-card h4{font-size:15px;margin-bottom:4px}
+.float-card p{font-size:12.5px;color:var(--muted)}
+.fc1{top:0;left:2%}
+.fc2{top:26%;right:0;animation-delay:-2.4s}
+.fc3{top:58%;left:0;animation-delay:-4.6s}
+.fc4{bottom:2%;right:6%;animation-delay:-1.2s}
+@keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+.orbit{position:absolute;top:50%;left:50%;width:380px;height:380px;transform:translate(-50%,-50%);border:1px dashed rgba(108,60,240,.30);border-radius:50%;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.orbit .oc{position:absolute;width:56px;height:56px;border-radius:16px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;font-size:24px;box-shadow:0 12px 30px rgba(20,24,60,.15)}
+.oc.o1{top:-28px;left:50%;margin-left:-28px}
+.oc.o2{right:-28px;top:50%;margin-top:-28px}
+.oc.o3{bottom:-28px;left:50%;margin-left:-28px}
+.oc.o4{left:-28px;top:50%;margin-top:-28px}
+
+/* marquee */
+.marquee{overflow:hidden;background:linear-gradient(90deg,transparent,rgba(108,60,240,.08),transparent);padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.marquee-track{display:flex;gap:48px;white-space:nowrap;animation:marq 26s linear infinite}
+.marquee-track span{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:18px;color:var(--muted)}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* solutions */
+.sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+.sol{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:20px;padding:28px;transition:.3s;position:relative;overflow:hidden}
+.sol:hover{transform:translateY(-8px);border-color:rgba(108,60,240,.5);box-shadow:0 22px 50px rgba(20,24,60,.10)}
+.sol .ic{width:52px;height:52px;border-radius:14px;background:var(--grad);display:grid;place-items:center;font-size:24px;margin-bottom:18px}
+.sol h3{font-size:19px;margin-bottom:8px}
+.sol p{color:var(--muted);font-size:14.5px}
+
+/* syllabus */
+.mod-list{margin-top:44px;display:flex;flex-direction:column;gap:16px}
+.mod{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.mod-head{display:flex;align-items:center;gap:18px;padding:22px 24px;cursor:pointer}
+.mod-head .num{font-family:'JetBrains Mono',monospace;font-weight:800;font-size:22px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;min-width:44px}
+.mod-head .info{flex:1}
+.mod-head h3{font-size:18px}
+.mod-head .weeks{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--cyan);font-weight:600}
+.mod-head .arrow{transition:.3s;color:var(--muted);font-size:20px}
+.mod.open .arrow{transform:rotate(180deg)}
+.mod-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.mod.open .mod-body{max-height:900px}
+.mod-body-inner{padding:0 24px 24px 86px}
+.topic{display:flex;gap:10px;margin-bottom:10px}
+.topic b{color:var(--text);font-size:14.5px;min-width:150px}
+.topic span{color:var(--muted);font-size:14.5px}
+
+/* paths */
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
+.path{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:22px;padding:34px;position:relative;overflow:hidden;transition:.3s}
+.path:hover{transform:translateY(-6px)}
+.path .tag{position:absolute;top:20px;right:20px;font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px}
+.path.place .tag{background:rgba(56,232,255,.15);color:var(--cyan)}
+.path.startup .tag{background:rgba(88,196,114,.15);color:var(--green)}
+.path h3{font-size:24px;margin:10px 0 6px}
+.path ul{list-style:none;margin-top:18px}
+.path li{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;color:var(--muted);font-size:15px}
+.path li::before{content:"✓";color:var(--green);font-weight:800;flex-shrink:0}
+
+/* journey */
+.journey-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px;counter-reset:j}
+.step{background:rgba(108,60,240,.04);border:1px solid var(--line);border-radius:18px;padding:26px 22px;position:relative;transition:.3s}
+.step:hover{transform:translateY(-6px);border-color:rgba(108,60,240,.5)}
+.step::before{counter-increment:j;content:"0" counter(j);font-family:'JetBrains Mono',monospace;font-weight:800;font-size:34px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;display:block;margin-bottom:12px}
+.step h4{font-size:17px;margin-bottom:6px}
+.step p{color:var(--muted);font-size:14px}
+
+/* pricing */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px;align-items:stretch}
+.price{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:22px;padding:34px;display:flex;flex-direction:column;transition:.3s;position:relative}
+.price:hover{transform:translateY(-8px)}
+.price.pop{background:linear-gradient(180deg,#efe9ff,#f7f6ff);border:1.5px solid var(--purple);box-shadow:0 24px 70px rgba(108,60,240,.18);transform:scale(1.03)}
+.price .pop-tag{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--grad);padding:6px 16px;border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700}
+.price h3{font-size:20px;margin-bottom:6px}
+.price .billed{font-size:13px;color:var(--muted)}
+.price .amount{font-family:'JetBrains Mono',monospace;font-weight:800;font-size:40px;margin:16px 0 4px}
+.price .amount small{font-size:15px;color:var(--muted);font-weight:500}
+.price ul{list-style:none;margin:20px 0 28px;flex:1}
+.price li{display:flex;gap:10px;margin-bottom:11px;font-size:14.5px;color:var(--muted);align-items:flex-start}
+.price li::before{content:"✓";color:var(--green);font-weight:800;flex-shrink:0}
+.price .btn{justify-content:center}
+
+/* apps — futuristic product page */
+.apps-sec{position:relative}
+.apps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:56px}
+.app-card{background:linear-gradient(165deg,#ffffff,#f1f3ff);border:1px solid rgba(108,60,240,.16);border-radius:26px;padding:24px 22px 28px;position:relative;transition:.35s;overflow:hidden}
+.app-card .glow{position:absolute;width:200px;height:200px;border-radius:50%;filter:blur(60px);opacity:.35;top:-60px;right:-60px;background:var(--grad);pointer-events:none;transition:.4s}
+.app-card:hover{transform:translateY(-12px);box-shadow:0 34px 70px rgba(108,60,240,.24);border-color:rgba(108,60,240,.5)}
+.app-card:hover .glow{opacity:.55;transform:scale(1.2)}
+.phone{width:78%;margin:0 auto 22px;aspect-ratio:9/19;border-radius:24px;overflow:hidden;border:9px solid #0c1030;background:#0c1030;box-shadow:0 22px 55px rgba(20,24,60,.4),0 0 0 1px rgba(108,60,240,.25),0 0 26px rgba(108,60,240,.18);position:relative;transition:.35s}
+.app-card:hover .phone{transform:translateY(-4px) scale(1.02);box-shadow:0 28px 60px rgba(20,24,60,.45),0 0 0 1px rgba(14,159,216,.5),0 0 40px rgba(108,60,240,.35)}
+.phone img{width:100%;height:100%;object-fit:cover;display:block}
+.phone .notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:42%;height:20px;background:#0c1030;border-radius:0 0 14px 14px;z-index:2}
+.phone .bar{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);width:34%;height:4px;border-radius:4px;background:rgba(255,255,255,.55);z-index:2}
+.app-name{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:20px;margin-bottom:6px;text-align:center}
+.app-name .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.app-tagline{color:var(--muted);font-size:14px;text-align:center;margin-bottom:14px;min-height:42px}
+.app-tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:18px}
+.app-tags span{font-family:'JetBrains Mono',monospace;font-size:11px;background:rgba(108,60,240,.07);color:var(--purple);padding:4px 10px;border-radius:9px;border:1px solid rgba(108,60,240,.16)}
+.app-link{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:13.5px;color:#fff;background:var(--grad);padding:11px 20px;border-radius:13px;display:inline-flex;align-items:center;gap:8px;box-shadow:0 10px 26px rgba(108,60,240,.32);margin:0 auto;width:fit-content;transition:.25s}
+.app-link:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(108,60,240,.42)}
+.app-link svg{transition:.25s}
+.app-link:hover svg{transform:translateX(3px)}
+
+/* team */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+.member{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:20px;padding:30px;text-align:center;transition:.3s}
+.member:hover{transform:translateY(-6px)}
+.member .av{width:74px;height:74px;border-radius:50%;background:var(--grad);margin:0 auto 16px;display:grid;place-items:center;font-size:28px;font-weight:800;color:#fff}
+.member h3{font-size:19px}
+.member .role{font-family:'JetBrains Mono',monospace;color:var(--cyan);font-size:12.5px;font-weight:600;margin:4px 0 12px}
+.member .tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.member .tags span{font-size:12px;background:rgba(108,60,240,.08);padding:5px 11px;border-radius:999px;color:var(--muted)}
+
+/* faq */
+.faq{max-width:780px;margin:44px auto 0}
+.faq-item{border:1px solid var(--line);border-radius:16px;margin-bottom:14px;overflow:hidden;background:rgba(255,255,255,.6)}
+.faq-q{padding:20px 24px;font-weight:600;font-size:16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq-q .fplus{transition:.3s;color:var(--cyan);font-size:22px;flex-shrink:0}
+.faq-item.open .fplus{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-item.open .faq-a{max-height:300px}
+.faq-a p{padding:0 24px 22px;color:var(--muted);font-size:15px}
+
+/* cta / contact */
+.cta-sec{text-align:center}
+.cta-card{background:linear-gradient(135deg,rgba(108,60,240,.10),rgba(14,159,216,.08));border:1px solid rgba(108,60,240,.30);border-radius:28px;padding:60px 40px;position:relative;overflow:hidden}
+.cta-card h2{font-size:clamp(28px,4.4vw,44px);font-weight:800;margin-bottom:16px}
+.cta-card p{color:var(--muted);max-width:520px;margin:0 auto 32px}
+.form{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.form input,.form select,.form textarea{width:100%;background:#fff;border:1px solid rgba(20,24,60,.16);border-radius:12px;padding:15px 18px;color:#171b33;font-family:'Space Grotesk',sans-serif;font-size:15px;box-shadow:0 2px 8px rgba(20,24,60,.04)}
+.form input::placeholder,.form textarea::placeholder{color:#9aa2c0}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--purple);box-shadow:0 0 0 3px rgba(108,60,240,.15)}
+.form select{appearance:none;color:#171b33}
+.form select option{background:#fff;color:#171b33}
+.form textarea{resize:vertical;min-height:90px}
+.form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:60px 0 34px;background:rgba(244,246,255,.7)}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px;margin-bottom:40px}
+.foot h4{font-size:15px;margin-bottom:16px}
+.foot p{color:var(--muted);font-size:14px;max-width:300px}
+.foot ul{list-style:none}
+.foot li{margin-bottom:11px}
+.foot a{color:var(--muted);font-size:14.5px;transition:.2s}
+.foot a:hover{color:#6C3CF0}
+.copy{text-align:center;color:#8a92b0;font-size:13.5px;border-top:1px solid var(--line);padding-top:26px}
+
+@media(max-width:900px){
+  .nav-links{display:none}
+  .menu-btn{display:block}
+  .hero-grid{grid-template-columns:1fr}
+  .sol-grid,.team-grid{grid-template-columns:1fr 1fr}
+  .apps-grid{grid-template-columns:1fr 1fr}
+  .price-grid,.journey-grid{grid-template-columns:1fr 1fr}
+  .paths{grid-template-columns:1fr}
+  .float-wrap{display:none}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  .sol-grid,.team-grid,.price-grid,.journey-grid{grid-template-columns:1fr}
+  .apps-grid{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr}
+  .form .row{grid-template-columns:1fr}
+}
+/* ---- app detail modal (opened by clicking an app card) ---- */
+.app-card.tappable{cursor:pointer}
+.modal-ov{position:fixed;inset:0;z-index:300;background:rgba(12,15,35,.66);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:22px}
+.modal-ov.open{display:flex}
+.modal-box{background:#fff;border-radius:24px;max-width:900px;width:100%;max-height:88vh;overflow:auto;position:relative;padding:32px 34px 36px;animation:modalIn .3s ease;box-shadow:0 40px 100px rgba(10,12,40,.5)}
+@keyframes modalIn{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:none}}
+.modal-x{position:absolute;top:14px;right:14px;width:40px;height:40px;border:none;border-radius:12px;background:#f1f2fb;color:#171b33;font-size:20px;cursor:pointer;line-height:1}
+.modal-x:hover{background:#e6e8f8}
+.modal-h2{font-family:'Sora',sans-serif;font-size:26px;font-weight:800;margin:0 0 4px;padding-right:44px}
+.modal-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#6C3CF0;background:rgba(108,60,240,.08);padding:4px 12px;border-radius:999px;margin:6px 0 14px}
+.modal-desc{color:var(--muted);font-size:15px;line-height:1.65;max-width:680px;margin:0 0 16px}
+.modal-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.modal-chips span{font-family:'JetBrains Mono',monospace;font-size:12px;background:#f0f1fa;border:1px solid var(--line);padding:6px 12px;border-radius:999px;color:#3a4168}
+.modal-main{background:#0f1226;border-radius:18px;overflow:hidden;display:flex;justify-content:center;align-items:center;margin-bottom:14px}
+.modal-main img{height:470px;max-width:100%;object-fit:cover;display:block}
+.modal-thumbs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.modal-thumbs img{height:160px;width:74px;object-fit:cover;border-radius:11px;border:2px solid transparent;cursor:pointer;transition:.2s}
+.modal-thumbs img.active{border-color:var(--purple);box-shadow:0 6px 18px rgba(108,60,240,.3)}
+.modal-thumbs img:hover{transform:translateY(-3px)}
+.modal-cta{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-weight:600;font-size:14px;color:#fff;background:var(--grad);padding:12px 22px;border-radius:13px;box-shadow:0 10px 26px rgba(108,60,240,.32);transition:.25s}
+.modal-cta:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(108,60,240,.42)}
+@media(max-width:640px){.modal-main img{height:360px}.modal-box{padding:26px 18px 28px}}
+</style>
 </head>
 <body>
-    <!-- Background orbs -->
-    <div class="bg-orbs">
-        <div class="bg-orb bg-orb--1"></div>
-        <div class="bg-orb bg-orb--2"></div>
-        <div class="bg-orb bg-orb--3"></div>
-        <div class="bg-orb bg-orb--4"></div>
+<canvas id="net"></canvas>
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="container nav-inner">
+    <div class="logo">We<span class="grad-text">WithAll</span></div>
+    <div class="nav-links" id="navLinks">
+      <a href="#syllabus">Syllabus</a>
+      <a href="#products">Products</a>
+      <a href="#paths">Career Paths</a>
+      <a href="#pricing">Fees</a>
+      <a href="#team">Team</a>
+      <a href="#faq">FAQ</a>
     </div>
+    <a class="btn btn-grad" href="#contact">Get Started</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#171b33" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  </div>
+</nav>
 
-    <!-- Navigation -->
-    <nav class="nav" id="navbar">
-        <div class="nav__inner container">
-            <a href="index.html" class="nav__logo">
-               <img width="30" src="logobg.png" alt="" style="background: transparent;">
-                We With All 
-            </a>
-            <ul class="nav__links" id="navLinks">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#syllabus">Syllabus</a></li>
-                <li><a href="#pathways">Career Paths</a></li>
-                <li><a href="v2v.html">Products</a></li>
-                <li><a href="startup-launchpad.html">Startup Launchpad</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#team">Team</a></li>
-                <li><a href="#contact" class="nav__cta">Get Started</a></li>
-                <li><button id="themeToggle" class="btn--theme" aria-label="Switch theme">🌓</button></li>
-            </ul>
-            <button class="nav__hamburger" id="hamburger" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </nav>
-<div style="height: 70px;" class="mobile-spacer"></div>
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <canvas id="heroCanvas"></canvas>
-        <div class="hero__content container">
-            <div class="hero__badge">
-                <span class="hero__badge-dot"></span> India's First Complete Career Ecosystem
-            </div>
-            <h1 class="hero__title">
-                Master AI/ML.<br>
-                <span class="text-gradient">Get Hired</span> or <span class="text-gradient">Launch Your Startup</span>
-            </h1>
-            <p class="hero__desc">
-                We don't just teach – we guarantee your success. Get placed in top companies or we'll guide you
-                from company registration to raising your first funding round. Your success is our mission.
-            </p>
-            <div class="hero__buttons">
-                <a href="#syllabus" class="btn btn--primary">View Full Syllabus</a>
-                <a href="startup-launchpad.html" class="btn btn--outline">Startup Launchpad 🚀</a>
-            </div>
-            <div class="hero__stats-mini">
-                <div class="hero__stat-mini">
-                    <span class="hero__stat-number">5,000+</span>
-                    <span class="hero__stat-label">Students Trained</span>
-                </div>
-                <div class="hero__stat-mini">
-                    <span class="hero__stat-number">92%</span>
-                    <span class="hero__stat-label">Placement Rate</span>
-                </div>
-                <div class="hero__stat-mini">
-                    <span class="hero__stat-number">150+</span>
-                    <span class="hero__stat-label">Startups Launched</span>
-                </div>
-                <div class="hero__stat-mini">
-                    <span class="hero__stat-number">₹50Cr+</span>
-                    <span class="hero__stat-label">Funding Raised by Students</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Overview -->
-    <section class="section section--alt" id="services">
-        <div class="container">
-            <span class="section__label reveal">What We Offer</span>
-            <h2 class="section__title reveal">End-to-End <span class="text-gradient">Career Solutions</span></h2>
-            <p class="section__subtitle reveal">
-                From learning cutting-edge AI to landing your dream job or launching a funded startup –
-                we're with you every step of the way.
-            </p>
-            <div class="services-grid">
-                <div class="service-card reveal">
-                    <div class="service-card__icon service-card__icon--teal">🧠</div>
-                    <h3 class="service-card__title">AI/ML Training</h3>
-                    <p class="service-card__desc">Comprehensive curriculum covering Python, Machine Learning, Deep Learning, NLP, Computer Vision, Generative AI, and MLOps with 25+ real industry projects.</p>
-                </div>
-                <div class="service-card reveal">
-                    <div class="service-card__icon service-card__icon--blue">💼</div>
-                    <h3 class="service-card__title">Placement Guarantee</h3>
-                    <p class="service-card__desc">Dedicated placement cell, resume building, LinkedIn optimization, mock interviews with hiring managers, and referrals to 200+ partner companies until you get hired.</p>
-                </div>
-                <div class="service-card reveal">
-                    <div class="service-card__icon service-card__icon--purple">🏢</div>
-                    <h3 class="service-card__title">Startup Incorporation</h3>
-                    <p class="service-card__desc">Complete assistance with company registration (Pvt Ltd, LLP, OPC), GST, MSME, trademark filing, bank account setup, and all legal documentation.</p>
-                </div>
-                <div class="service-card reveal">
-                    <div class="service-card__icon service-card__icon--teal">💰</div>
-                    <h3 class="service-card__title">Fundraising Support</h3>
-                    <p class="service-card__desc">Pitch deck creation, financial modeling, valuation guidance, investor database access, and warm introductions to angel investors and VCs.</p>
-                </div>
-                <div class="service-card reveal">
-                    <div class="service-card__icon service-card__icon--blue">👨‍🏫</div>
-                    <h3 class="service-card__title">1-on-1 Mentorship</h3>
-                    <p class="service-card__desc">Weekly sessions with industry mentors from Google, Microsoft, Amazon, and successful startup founders who've raised millions in funding.</p>
-                </div>
-                <div class="service-card reveal">
-                    <div class="service-card__icon service-card__icon--purple">📋</div>
-                    <h3 class="service-card__title">Legal & Compliance</h3>
-                    <p class="service-card__desc">Co-founder agreements, ESOP structuring, term sheet negotiation, shareholder agreements, NDAs, and ongoing compliance support for your startup.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Comprehensive Course Syllabus (NEW) -->
-    <section class="section" id="syllabus">
-        <div class="container">
-            <span class="section__label reveal">Curriculum</span>
-            <h2 class="section__title reveal">Complete <span class="text-gradient">AI/ML Syllabus</span></h2>
-            <p class="section__subtitle reveal">
-                6-month intensive program covering everything from Python basics to cutting-edge Generative AI.
-                Updated monthly with the latest industry trends.
-            </p>
-
-            <!-- Module 1 -->
-            <div class="syllabus-module reveal">
-                <button class="syllabus-module__header">
-                    <div class="syllabus-module__left">
-                        <span class="syllabus-module__number">Module 1</span>
-                        <h3>Python & Data Science Foundations</h3>
-                    </div>
-                    <span class="syllabus-module__duration">4 Weeks</span>
-                    <span class="syllabus-module__icon">+</span>
-                </button>
-                <div class="syllabus-module__content">
-                    <div class="syllabus-topics">
-                        <div class="syllabus-topic">
-                            <h4>Python Programming</h4>
-                            <ul>
-                                <li>Data types, control flow, functions, OOP</li>
-                                <li>List comprehensions, lambda functions, decorators</li>
-                                <li>File handling, exception handling, modules & packages</li>
-                                <li>Working with APIs, JSON, and web scraping (BeautifulSoup, Scrapy)</li>
-                            </ul>
-                        </div>
-                        <div class="syllabus-topic">
-                            <h4>Data Science Libraries</h4>
-                            <ul>
-                                <li>NumPy: Arrays, vectorization, broadcasting</li>
-                                <li>Pandas: DataFrames, data cleaning, merging, groupby</li>
-                                <li>Matplotlib & Seaborn: Data visualization, plots, dashboards</li>
-                                <li>Plotly: Interactive visualizations and dashboards</li>
-                            </ul>
-                        </div>
-                        <div class="syllabus-topic">
-                            <h4>Statistics & Mathematics</h4>
-                            <ul>
-                                <li>Descriptive & inferential statistics</li>
-                                <li>Probability distributions, hypothesis testing</li>
-                                <li>Linear algebra: vectors, matrices, eigenvalues</li>
-                                <li>Calculus: derivatives, gradients, optimization</li>
-                            </ul>
-                        </div>
-                        <div class="syllabus-topic">
-                            <h4>SQL & Databases</h4>
-                            <ul>
-                                <li>SQL queries, joins, subqueries, window functions</li>
-                                <li>PostgreSQL, MySQL, MongoDB basics</li>
-                                <li>Database design and normalization</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Module 2 -->
-            <div class="syllabus-module reveal">
-                <button class="syllabus-module__header">
-                    <div class="syllabus-module__left">
-                        <span class="syllabus-module__number">Module 2</span>
-                        <h3>Machine Learning Mastery</h3>
-                    </div>
-                    <span class="syllabus-module__duration">6 Weeks</span>
-                    <span class="syllabus-module__icon">+</span>
-                </button>
-                <div class="syllabus-module__content">
-                    <div class="syllabus-topics">
-                        <div class="syllabus-topic">
-                            <h4>Supervised Learning</h4>
-                            <ul>
-                                <li>Linear Regression, Polynomial Regression</li>
-                                <li>Logistic Regression, Decision Trees, Random Forest</li>
-                                <li>SVM, KNN, Naive Bayes</li>
-                                <li>Gradient Boosting: XGBoost, LightGBM, CatBoost</li>
-                                <li>Ensemble methods: Bagging, Boosting, Stacking</li>
-                            </ul>
-                        </div>
-                        <div class="syllabus-topic">
-                            <h4>Unsupervised Learning</h4>
-                            <ul>
-                                <li>K-Means, Hierarchical Clustering, DBSCAN</li>
-                                <li>PCA, t-SNE, UMAP for dimensionality reduction</li>
-                                <li>Anomaly detection: Isolation Forest, LOF</li>
-                                <li>Association Rules: Apriori, FP-Growth</li>
-                            </ul>
-                        </div>
-                        <div class="syllabus-topic">
-                            <h4>Feature Engineering</h4>
-                            <ul>
-                                <li>Feature selection: RFE, feature importance, correlation</li>
-                                <li>Feature extraction: PCA, LDA, autoencoders</li>
-                                <li>Handling missing data, outliers, imbalanced datasets</li>
-                                <li>Cross-validation, hyperparameter tuning (GridSearch, Optuna)</li>
-                            </ul>
-                        </div>
-                        <div class="syllabus-topic">
-                            <h4>Model Deployment</h4>
-                            <ul>
-                                <li>MLflow for experiment tracking</li>
-                                <li>Model serialization: Pickle, Joblib, ONNX</li>
-                                <li>Building REST APIs with FastAPI</li>
-                                <li>Docker containerization for ML models</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Module 3 -->
-            <div class="syllabus-module reveal">
-                <button class="syllabus-module__header">
-                    <div class="syllabus-module__left">
-                        <span class="syllabus-module__number">Module 3</span>
-                        <h3>Deep Learning & Neural Networks</h3>
-                    </div>
-                    <span class="syllabus-module__duration">5 Weeks</span>
-                    <span class="syllabus-module__icon">+</span>
-                </button>
-                <div class="syllabus-module__content">
-                    <div class="syllabus-topics">
-                        <div class="syllabus-topic">
-                            <h4>Neural Network Fundamentals</h4>
-                            <ul>
-                                <li>Perceptrons, activation functions, backpropagation</li>
-                                <li>TensorFlow 2.x & Keras, PyTorch</li>
-                                <li>Optimizers: SGD, Adam, RMSprop, AdamW</li>
-                                <li>Batch normalization, dropout, weight initialization</li>
-                                <li>Transfer learning & fine-tuning pre-trained models</li>
-                            </ul>
-                        </div>
-                        <div class="syllabus-topic">
-                            <h4>CNN - Computer Vision</h4>
-                            <ul>
-                                <li>CNN architectures: LeNet, AlexNet, VGG, ResNet, Inception</li>
-                                <li>Object detection: YOLOv8, Faster R-CNN, SSD</li>
-                                <li>Image segmentation: U-Net, Mask R-CNN</li>
-                                <li>GANs: DCGAN, StyleGAN, CycleGAN</li>
-                                <li>Vision Transformers (ViT), Stable Diffusion basics</li>
-                            </ul>
-                        </div>
-                        <div class="syllabus-topic">
-                            <h4>RNN & Sequence Models</h4>
-                            <ul>
-                                <li>RNN, LSTM, GRU architectures</li>
-                                <li>Bidirectional RNNs, stacked LSTMs</li>
-                                <li>Time series forecasting with deep learning</li>
-                                <li>Attention mechanisms, seq2seq models</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Module 4 -->
-            <div class="syllabus-module reveal">
-                <button class="syllabus-module__header">
-                    <div class="syllabus-module__left">
-                        <span class="syllabus-module__number">Module 4</span>
-                        <h3>NLP & Large Language Models</h3>
-                    </div>
-                    <span class="syllabus-module__duration">5 Weeks</span>
-                    <span class="syllabus-module__icon">+</span>
-                </button>
-                <div class="syllabus-module__content">
-                    <div class="syllabus-topics">
-                        <div class="syllabus-topic">
-                            <h4>Traditional NLP</h4>
-                            <ul>
-                                <li>Text preprocessing: tokenization, stemming, lemmatization</li>
-                                <li>Word embeddings: Word2Vec, GloVe, FastText</li>
-                                <li>TF-IDF, Bag of Words, N-grams</li>
-                                <li>Named Entity Recognition (NER), POS tagging</li>
-                                <li>Sentiment analysis, text classification</li>
-                            </ul>
-                        </div>
-                        <div class="syllabus-topic">
-                            <h4>Transformers & LLMs</h4>
-                            <ul>
-                                <li>Transformer architecture deep dive</li>
-                                <li>BERT, RoBERTa, DistilBERT for understanding</li>
-                                <li>GPT-3.5, GPT-4, Claude, Gemini architecture</li>
-                                <li>Fine-tuning LLMs with LoRA, QLoRA</li>
-                                <li>Prompt engineering: Chain-of-Thought, Few-shot, RAG</li>
-                            </ul>
-                        </div>
-                        <div class="syllabus-topic">
-                            <h4>Advanced NLP Applications</h4>
-                            <ul>
-                                <li>Building chatbots with LangChain & LlamaIndex</li>
-                                <li>Vector databases: Pinecone, Weaviate, ChromaDB</li>
-                                <li>Semantic search & document Q&A systems</li>
-                                <li>Text summarization, translation, text generation</li>
-                                <li>Hugging Face ecosystem: Transformers, Datasets, Spaces</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Module 5 -->
-            <div class="syllabus-module reveal">
-                <button class="syllabus-module__header">
-                    <div class="syllabus-module__left">
-                        <span class="syllabus-module__number">Module 5</span>
-                        <h3>Generative AI & Latest Tech (2025-26)</h3>
-                    </div>
-                    <span class="syllabus-module__duration">4 Weeks</span>
-                    <span class="syllabus-module__icon">+</span>
-                </button>
-                <div class="syllabus-module__content">
-                    <div class="syllabus-topics">
-                        <div class="syllabus-topic">
-                            <h4>Generative AI</h4>
-                            <ul>
-                                <li>Stable Diffusion, DALL-E, Midjourney architecture</li>
-                                <li>Diffusion models: DDPM, DDIM, Latent Diffusion</li>
-                                <li>Text-to-image, image-to-image, inpainting</li>
-                                <li>AI video generation: RunwayML, Pika, Sora basics</li>
-                                <li>Music generation: MusicLM, AudioCraft</li>
-                            </ul>
-                        </div>
-                        <div class="syllabus-topic">
-                            <h4>AI Agents & Autonomous Systems</h4>
-                            <ul>
-                                <li>AutoGPT, BabyAGI, CrewAI frameworks</li>
-                                <li>Multi-agent systems and orchestration</li>
-                                <li>Tool use, function calling, API integration</li>
-                                <li>Building autonomous AI workflows</li>
-                                <li>Agentic RAG: Advanced retrieval augmented generation</li>
-                            </ul>
-                        </div>
-                        <div class="syllabus-topic">
-                            <h4>MLOps & Production AI</h4>
-                            <ul>
-                                <li>Kubernetes for ML workloads</li>
-                                <li>Kubeflow, MLflow, Weights & Biases</li>
-                                <li>CI/CD pipelines for ML models</li>
-                                <li>Model monitoring, drift detection, A/B testing</li>
-                                <li>Cloud deployment: AWS SageMaker, GCP Vertex AI, Azure ML</li>
-                            </ul>
-                        </div>
-                        <div class="syllabus-topic">
-                            <h4>Edge AI & TinyML</h4>
-                            <ul>
-                                <li>Model optimization: quantization, pruning, distillation</li>
-                                <li>TensorFlow Lite, ONNX Runtime, OpenVINO</li>
-                                <li>Deploying models on mobile & IoT devices</li>
-                                <li>Edge computing architectures</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Module 6 -->
-            <div class="syllabus-module reveal">
-                <button class="syllabus-module__header">
-                    <div class="syllabus-module__left">
-                        <span class="syllabus-module__number">Module 6</span>
-                        <h3>Capstone Projects & Career Prep</h3>
-                    </div>
-                    <span class="syllabus-module__duration">4 Weeks</span>
-                    <span class="syllabus-module__icon">+</span>
-                </button>
-                <div class="syllabus-module__content">
-                    <div class="syllabus-topics">
-                        <div class="syllabus-topic">
-                            <h4>Industry Projects (Choose 3)</h4>
-                            <ul>
-                                <li>Build a production-grade RAG chatbot for legal/medical domain</li>
-                                <li>Real-time object detection system for autonomous vehicles</li>
-                                <li>AI-powered stock trading bot with sentiment analysis</li>
-                                <li>Healthcare diagnosis system using medical imaging</li>
-                                <li>Recommendation engine for e-commerce (like Amazon)</li>
-                                <li>Generative AI content creation platform</li>
-                                <li>Fraud detection system for banking transactions</li>
-                                <li>Multi-modal AI: Image + Text understanding system</li>
-                            </ul>
-                        </div>
-                        <div class="syllabus-topic">
-                            <h4>Placement Preparation</h4>
-                            <ul>
-                                <li>Resume building workshop (ATS-friendly format)</li>
-                                <li>LinkedIn profile optimization</li>
-                                <li>GitHub portfolio creation</li>
-                                <li>Technical interview preparation (DSA + ML theory)</li>
-                                <li>5 mock interviews with industry professionals</li>
-                                <li>Salary negotiation strategies</li>
-                            </ul>
-                        </div>
-                        <div class="syllabus-topic">
-                            <h4>Startup Launch Preparation</h4>
-                            <ul>
-                                <li>Identifying market opportunities in AI</li>
-                                <li>Building an MVP in 2 weeks</li>
-                                <li>Creating investor-ready pitch decks</li>
-                                <li>Financial modeling for AI startups</li>
-                                <li>Legal basics for tech founders</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Download CTA -->
-            <div class="syllabus-cta reveal">
-                <h3>Want the detailed syllabus PDF?</h3>
-                <p>Download our complete 50-page curriculum guide with project details, tools, and learning outcomes.</p>
-                <a href="#contact" class="btn btn--primary">Get Full Syllabus</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Career Pathways (Dual Track) -->
-    <section class="section section--alt" id="pathways">
-        <div class="container">
-            <span class="section__label reveal">Our Promise</span>
-            <h2 class="section__title reveal">Two Career Paths. <span class="text-gradient">One Goal.</span></h2>
-            <p class="section__subtitle reveal">
-                Whether you dream of a high-paying AI job or building your own startup, we guarantee your success.
-            </p>
-            <div class="pathways-grid">
-                <div class="pathway-card pathway-card--job reveal">
-                    <div class="pathway-card__icon">💼</div>
-                    <h3 class="pathway-card__title">Placement Track</h3>
-                    <p class="pathway-card__desc">Get hired by top tech companies with our guaranteed placement program.</p>
-                    <ul class="pathway-card__list">
-                        <li>Industry-vetted AI/ML curriculum</li>
-                        <li>ATS-optimized resume building</li>
-                        <li>LinkedIn & GitHub portfolio creation</li>
-                        <li>5 mock interviews with FAANG engineers</li>
-                        <li>Direct referrals to 200+ partner companies</li>
-                        <li>Salary negotiation workshop</li>
-                        <li>Post-placement support for 6 months</li>
-                    </ul>
-                    <div class="pathway-card__companies">
-                        <span>Our students work at:</span>
-                        <div class="company-logos">
-                            <span>Google</span>
-                            <span>Microsoft</span>
-                            <span>Amazon</span>
-                            <span>TCS</span>
-                            <span>Infosys</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="pathway-card pathway-card--startup reveal">
-                    <div class="pathway-card__icon">🚀</div>
-                    <h3 class="pathway-card__title">Startup Track</h3>
-                    <p class="pathway-card__desc">Launch and fund your own AI startup with end-to-end support.</p>
-                    <ul class="pathway-card__list">
-                        <li>Company registration (Pvt Ltd/LLP/OPC)</li>
-                        <li>GST, MSME, trademark, and FSSAI filing</li>
-                        <li>Professional pitch deck design</li>
-                        <li>Financial modeling & valuation</li>
-                        <li>Investor database (500+ angels & VCs)</li>
-                        <li>Warm introductions to investors</li>
-                        <li>12 months legal & compliance support</li>
-                    </ul>
-                    <div class="pathway-card__companies">
-                        <span>Our founders raised from:</span>
-                        <div class="company-logos">
-                            <span>Sequoia</span>
-                            <span>Y Combinator</span>
-                            <span>Accel</span>
-                            <span>Lightspeed</span>
-                            <span>Blume</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Learning Journey Roadmap -->
-    <section class="section" id="roadmap">
-        <div class="container">
-            <span class="section__label reveal">Your Journey</span>
-            <h2 class="section__title reveal">From <span class="text-gradient">Learning</span> to <span class="text-gradient">Earning</span></h2>
-            <div class="roadmap reveal">
-                <div class="roadmap-step">
-                    <div class="roadmap-step__number">01</div>
-                    <h4>Enroll & Learn</h4>
-                    <p>Master AI/ML with hands-on projects and 1-on-1 mentorship</p>
-                </div>
-                <div class="roadmap-connector"></div>
-                <div class="roadmap-step">
-                    <div class="roadmap-step__number">02</div>
-                    <h4>Build Portfolio</h4>
-                    <p>Create 25+ real-world projects that impress employers & investors</p>
-                </div>
-                <div class="roadmap-connector"></div>
-                <div class="roadmap-step">
-                    <div class="roadmap-step__number">03</div>
-                    <h4>Choose Your Path</h4>
-                    <p>Decide between placement preparation or startup launch</p>
-                </div>
-                <div class="roadmap-connector"></div>
-                <div class="roadmap-step">
-                    <div class="roadmap-step__number">04</div>
-                    <h4>Guaranteed Success</h4>
-                    <p>Land your dream job or launch & fund your own company</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing -->
-    <section class="section section--alt" id="pricing">
-        <div class="container">
-            <span class="section__label reveal">Pricing</span>
-            <h2 class="section__title reveal">Invest in <span class="text-gradient">Your Future</span></h2>
-            <p class="section__subtitle reveal">
-                All programs include our dual-track guarantee. If you don't get placed, we help you launch a startup.
-            </p>
-            <div class="pricing-grid reveal">
-                <div class="pricing-card">
-                    <h3 class="pricing-name">AI Professional</h3>
-                    <div class="pricing-price">₹49,999<span>/course</span></div>
-                    <ul class="pricing-features">
-                        <li>6-month AI/ML training</li>
-                        <li>25+ industry projects</li>
-                        <li>Placement preparation</li>
-                        <li>Resume & LinkedIn optimization</li>
-                        <li>3 mock interviews</li>
-                    </ul>
-                    <a href="#contact" class="btn btn--outline">Enroll Now</a>
-                </div>
-                <div class="pricing-card pricing-card--popular">
-                    <span class="pricing-badge">Most Popular</span>
-                    <h3 class="pricing-name">Career Guarantee</h3>
-                    <div class="pricing-price">₹79,999<span>/program</span></div>
-                    <ul class="pricing-features">
-                        <li>Everything in AI Professional</li>
-                        <li><strong>Placement guarantee or startup support</strong></li>
-                        <li>Company registration assistance</li>
-                        <li>Fundraising & pitch deck training</li>
-                        <li>5 mock interviews</li>
-                        <li>12-month mentorship access</li>
-                        <li>Post-placement support</li>
-                    </ul>
-                    <a href="#contact" class="btn btn--primary">Get Started</a>
-                </div>
-                <div class="pricing-card">
-                    <h3 class="pricing-name">Startup Launchpad</h3>
-                    <div class="pricing-price">₹1,49,999<span>/all-inclusive</span></div>
-                    <ul class="pricing-features">
-                        <li>Complete AI training + incorporation</li>
-                        <li>Legal & compliance for 1 year</li>
-                        <li>Investor introductions</li>
-                        <li>Co-founder matching</li>
-                        <li>Pitch deck & financial model</li>
-                        <li>3 months free co-working space</li>
-                        <li>₹10L+ cloud credits</li>
-                    </ul>
-                    <a href="#contact" class="btn btn--outline">Launch Your Startup</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team -->
-<section class="section" id="team">
-    <div class="container">
-        <span class="section__label reveal">Our Team</span>
-        <h2 class="section__title reveal">Meet Your <span class="text-gradient">Mentors</span></h2>
-        <p class="section__subtitle reveal">
-            Learn from industry veterans who've built AI systems at Google, Microsoft, and successful startups.
-        </p>
-        <div class="team-grid reveal">
-                       <!-- Member 2: KD Nimitha - CTO -->
-            <div class="team-card">
-                <div class="team-card__image-wrap">
-                    <img src="nimitha.png" alt="KD Nimitha" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-                    <div class="team-card__image-placeholder" style="display:none;">KN</div>
-                </div>
-                <div class="team-card__info-base">
-                    <h3 class="team-card__name">KD Nimitha</h3>
-                    <p class="team-card__role">Chief Executive Officer (CEO)</p>
-                </div>
-                <div class="team-card__detail-overlay">
-                    <p class="team-card__bio">Visionary leader driving the overall strategy and growth of wewithall. With 12+ years in AI/ML and experience at Google, VedhaShree ensures every student receives world-class education and career support. Passionate about democratizing AI education and building India's next generation of tech leaders.</p>
-                    <div class="team-card__tags">
-                        <span class="team-card__tag">Placements</span>
-                        <span class="team-card__tag">NLP</span>
-                        <span class="team-card__tag">Computer Vision</span>
-                    </div>
-                    <div class="team-card__social">
-                        <a href="#">🔗 LinkedIn</a>
-                        <a href="#">🐦 Twitter</a>
-                    </div>
-                </div>
-                <div class="team-card__glow-line"></div>
-            </div>
-
-            <!-- Member 3: Aayan - CMO -->
-            <div class="team-card">
-                <div class="team-card__image-wrap">
-                    <img src="aayan.png" alt="Aayan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-                    <div class="team-card__image-placeholder" style="display:none;">AA</div>
-                </div>
-                <div class="team-card__info-base">
-                    <h3 class="team-card__name">Aayan</h3>
-                    <p class="team-card__role">Chief Marketing Officer (CMO)</p>
-                </div>
-                <div class="team-card__detail-overlay">
-                    <p class="team-card__bio">Marketing strategist and corporate lawyer who drives wewithall's brand presence and student acquisition. Has registered 500+ companies and helped startups with legal compliance and fundraising. Expert in creating compelling narratives that attract top talent and investors.</p>
-                    <div class="team-card__tags">
-                        <span class="team-card__tag">Legal</span>
-                        <span class="team-card__tag">Compliance</span>
-                        <span class="team-card__tag">Fundraising</span>
-                    </div>
-                    <div class="team-card__social">
-                        <a href="#">🔗 LinkedIn</a>
-                        <a href="#">🐦 Twitter</a>
-                    </div>
-                </div>
-                <div class="team-card__glow-line"></div>
-            </div>
-
-           
-            <!-- Member 5: Arjun Mehta - CFO -->
-            <div class="team-card">
-                <div class="team-card__image-wrap">
-                    <img src="divya.png" alt="Arjun Mehta" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-                    <div class="team-card__image-placeholder" style="display:none;">AM</div>
-                </div>
-                <div class="team-card__info-base">
-                    <h3 class="team-card__name">Divya shree</h3>
-                    <p class="team-card__role">Chief Financial Officer (CFO)</p>
-                </div>
-                <div class="team-card__detail-overlay">
-                    <p class="team-card__bio">Financial expert and Chartered Accountant with 15+ years in investment banking at Goldman Sachs and Morgan Stanley. Manages wewithall's financial strategy and helps students understand startup finance, valuation, and fundraising. Expert in financial modeling and due diligence.</p>
-                    <div class="team-card__tags">
-                        <span class="team-card__tag">Financial Modeling</span>
-                        <span class="team-card__tag">Valuation</span>
-                        <span class="team-card__tag">Investment Banking</span>
-                    </div>
-                    <div class="team-card__social">
-                        <a href="#">🔗 LinkedIn</a>
-                        <a href="#">🐦 Twitter</a>
-                    </div>
-                </div>
-                <div class="team-card__glow-line"></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <!-- Partners -->
-    <section class="section section--alt" id="partners">
-        <div class="container">
-            <span class="section__label reveal">Our Partners</span>
-            <h2 class="section__title reveal">Trusted by <span class="text-gradient">Industry Leaders</span></h2>
-            <div class="partners-grid reveal">
-                <div class="partner-logo">Google</div>
-                <div class="partner-logo">Microsoft</div>
-                <div class="partner-logo">Amazon</div>
-                <div class="partner-logo">Meta</div>
-                <div class="partner-logo">TCS</div>
-                <div class="partner-logo">Infosys</div>
-                <div class="partner-logo">Sequoia</div>
-                <div class="partner-logo">Y Combinator</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section" id="faq">
-        <div class="container">
-            <span class="section__label reveal">FAQ</span>
-            <h2 class="section__title reveal">Frequently Asked <span class="text-gradient">Questions</span></h2>
-            <div class="faq-grid reveal">
-                <div class="faq-item">
-                    <button class="faq-question">How does the placement guarantee work? <span class="faq-icon">+</span></button>
-                    <div class="faq-answer"><p>If you don't receive a job offer within 6 months of completing the program, we either refund 50% of your fees or help you launch your own startup with full incorporation support. Our placement rate is 92%.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">Do I need prior coding experience? <span class="faq-icon">+</span></button>
-                    <div class="faq-answer"><p>No! Our program starts from absolute basics. Module 1 covers Python from scratch. Many of our successful students came from non-tech backgrounds like commerce, arts, and biology.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">What kind of startups can I launch? <span class="faq-icon">+</span></button>
-                    <div class="faq-answer"><p>We support AI/ML-based startups across all sectors – healthcare, fintech, edtech, agritech, SaaS, and more. Our team helps you identify market opportunities and build an MVP.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">How do you help with fundraising? <span class="faq-icon">+</span></button>
-                    <div class="faq-answer"><p>We provide pitch deck templates, financial modeling tools, access to our investor database of 500+ angels and VCs, and most importantly – warm introductions through our network.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">Is the program online or offline? <span class="faq-icon">+</span></button>
-                    <div class="faq-answer"><p>We offer both! Our hybrid model includes live online classes, recorded lectures, and optional in-person workshops in Bangalore, Mumbai, and Delhi NCR.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">What makes wewithall different from other AI courses? <span class="faq-icon">+</span></button>
-                    <div class="faq-answer"><p>Unlike traditional institutes, we don't just teach – we guarantee outcomes. Plus, our startup launchpad is unique. No other institute helps you incorporate a company and raise funding if you choose the entrepreneurial path.</p></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="section section--alt" id="contact">
-        <div class="container">
-            <div class="contact-wrapper reveal">
-                <span class="section__label">Get In Touch</span>
-                <h2 class="section__title">Start Your <span class="text-gradient">AI Journey</span> Today</h2>
-                <p style="color:var(--text-secondary); max-width:500px; margin:0 auto 2rem; line-height:1.7;">
-                    Fill the form below and our career counselor will call you within 24 hours to discuss the best path for you.
-                </p>
-                <form class="contact-form" id="contactForm" action="https://formsubmit.co/9fdda42bd869f2c911690276815a8176" method="POST">
-                    <div class="form-group">
-                        <input type="text" id="name" placeholder="Full Name *" required />
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" placeholder="Email Address *" required />
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" id="phone" placeholder="Phone Number" />
-                    </div>
-                    <div class="form-group">
-                        <select id="interest" required>
-                            <option value="">I'm interested in...learning *</option>
-                            <option value="placement">Getting a Job (Placement Track)</option>
-                            <option value="startup">Launching a Startup</option>
-                            <option value="both">Both – I'm Undecided</option>
-                            <option value="syllabus">Just the Syllabus PDF</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" rows="4" placeholder="Tell us about your background and goals..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn--primary">Submit & Get Free Career Consultation</button>
-                </form>
-                <p style="margin-top:1.5rem;">
-                    <a href="mailto:hello@wewithall.com" class="contact-email">📧 kdnimitha@wewithall.com</a> | 
-                    <a href="tel:+8792381530" class="contact-email">📞 +91 8792381530</a>
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <div class="container">
-  <h1>FormSubmit Demo</h1>
-  <form target="_blank" action="https://formsubmit.co/9fdda42bd869f2c911690276815a8176" method="POST">
-    <div class="form-group">
-      <div class="form-row">
-        <div class="col">
-          <input type="text" name="name" class="form-control" placeholder="Full Name" required>
-        </div>
-        <div class="col">
-          <input type="email" name="email" class="form-control" placeholder="Email Address" required>
-        </div>
+<!-- HERO -->
+<header class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="badge">Now Enrolling · 2026 Batch</span>
+      <h1>Master <span class="grad-text">AI/ML</span> from Basic to Advanced.<br>Get Hired or <span class="grad-text">Launch Your Startup.</span></h1>
+      <p class="tagline">We With All is the career bootcamp that guarantees outcomes. Learn AI & Machine Learning step by step, build real projects, and walk out with a top job — or your own funded startup.</p>
+      <div class="ctas">
+        <a class="btn btn-grad" href="#contact">Enroll Now</a>
+        <a class="btn btn-ghost" href="#syllabus">View Full Syllabus</a>
+      </div>
+      <div class="trust">
+        <div class="t"><b><span data-count="150">150</span>+</b><span>Startups Launched</span></div>
+        <div class="t"><b>₹<span data-count="50">50</span>Cr+</b><span>Funding Raised by Students</span></div>
+        <div class="t"><b><span data-count="92">92</span>%</b><span>Placement Rate</span></div>
       </div>
     </div>
-    <div class="form-group">
-      <textarea placeholder="Your Message" class="form-control" name="message" rows="10" required></textarea>
+    <div class="float-wrap">
+      <div class="orbit">
+        <div class="oc o1"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6C3CF0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg></div><div class="oc o2"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6C3CF0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="15" x2="8" y2="15.01"/><line x1="16" y1="15" x2="16" y2="15.01"/></svg></div><div class="oc o3"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6C3CF0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div class="oc o4"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6C3CF0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
+      </div>
+      <div class="float-card fc1"><div class="fc-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6C3CF0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg></div><h4>Learn AI</h4><p>From Python basics to LLMs</p></div>
+      <div class="float-card fc2"><div class="fc-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6C3CF0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><h4>Get a Job</h4><p>92% placement guarantee</p></div>
+      <div class="float-card fc3"><div class="fc-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6C3CF0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h4>Build Projects</h4><p>25+ industry projects</p></div>
+      <div class="float-card fc4"><div class="fc-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6C3CF0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div><h4>Launch Startup</h4><p>Incorporate + raise funding</p></div>
     </div>
-    <button type="submit" class="btn btn-lg btn-dark btn-block">Submit Form</button>
-  </form>
-</div>
+  </div>
+</header>
 
-    <footer class="footer">
-        <div class="container footer-grid">
-            <div class="footer-col">
-                <h4>wewithall</h4>
-                <p>Learn AI. Get Hired. Or Launch Your Startup. We guarantee your success with our dual-track career ecosystem.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#syllabus">Full Syllabus</a></li>
-                    <li><a href="#pathways">Career Paths</a></li>
-                    <li><a href="products.html">AI Products</a></li>
-                    <li><a href="startup-launchpad.html">Startup Launchpad</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <p>kdnimitha@wewithall.com</p>
-                <p>+91 8792381530</p>
-                <p>Bangalore | Mumbai | Delhi NCR</p>
-            </div>
-            <div class="footer-col">
-                <h4>Follow Us</h4>
-                <div class="footer-social">
-                    <a href="#">LinkedIn</a>
-                    <a href="#">YouTube</a>
-                    <a href="#">Instagram</a>
-                    <a href="#">Twitter</a>
-                </div>
-            </div>
+<div class="marquee"><div class="marquee-track" id="mq">
+  <span>PYTHON · MACHINE LEARNING · DEEP LEARNING · NLP · LLMs · GENERATIVE AI · AI AGENTS · MLOPS · COMPUTER VISION · </span>
+  <span>PYTHON · MACHINE LEARNING · DEEP LEARNING · NLP · LLMs · GENERATIVE AI · AI AGENTS · MLOPS · COMPUTER VISION · </span>
+</div></div>
+
+<!-- SOLUTIONS -->
+<section id="solutions">
+  <div class="container center">
+    <span class="badge">Why We With All</span>
+    <h2 class="sec-title">End-to-End <span class="grad-text">Career Solutions</span></h2>
+    <p class="sub">We don't just teach — we guarantee your outcome, whichever path you choose.</p>
+  </div>
+  <div class="container sol-grid">
+    <div class="sol reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg></div><h3>AI/ML Training</h3><p>Complete curriculum from absolute zero to advanced GenAI & LLMs, with hands-on projects.</p></div>
+    <div class="sol reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><h3>Placement Guarantee</h3><p>Resume & LinkedIn optimization, mock interviews, and direct referrals to hiring partners.</p></div>
+    <div class="sol reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg></div><h3>Startup Incorporation</h3><p>We help you register and legally set up your own AI company — completely supported.</p></div>
+    <div class="sol reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><h3>Fundraising Support</h3><p>Pitch decks, financial models, and warm intros to 500+ angels & VCs.</p></div>
+    <div class="sol reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>1-on-1 Mentorship</h3><p>Personal mentors who guide you from your first line of code to your first job/funding.</p></div>
+    <div class="sol reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>Legal & Compliance</h3><p>One year of legal and compliance support so your startup stays on the right track.</p></div>
+  </div>
+</section>
+
+<!-- SYLLABUS -->
+<section id="syllabus">
+  <div class="container center">
+    <span class="badge">Course Structure</span>
+    <h2 class="sec-title">Complete <span class="grad-text">AI/ML Syllabus</span></h2>
+    <p class="sub">6 modules. From basic Python to advanced Generative AI & Agents. Starts from absolute zero — no prior coding needed.</p>
+  </div>
+  <div class="container mod-list">
+    <div class="mod open">
+      <div class="mod-head"><div class="num">01</div><div class="info"><h3>Python & Data Science Foundations</h3><span class="weeks">4 weeks</span></div><span class="arrow">▾</span></div>
+      <div class="mod-body"><div class="mod-body-inner">
+        <div class="topic"><b>Python</b><span>Variables, loops, functions, OOP, file handling</span></div>
+        <div class="topic"><b>Data Libraries</b><span>NumPy, Pandas, Matplotlib, Seaborn, Plotly</span></div>
+        <div class="topic"><b>Statistics & Math</b><span>Linear algebra, calculus, gradients, optimization</span></div>
+        <div class="topic"><b>SQL & Databases</b><span>Queries, joins, data cleaning & storage</span></div>
+      </div></div>
+    </div>
+    <div class="mod">
+      <div class="mod-head"><div class="num">02</div><div class="info"><h3>Machine Learning Mastery</h3><span class="weeks">6 weeks</span></div><span class="arrow">▾</span></div>
+      <div class="mod-body"><div class="mod-body-inner">
+        <div class="topic"><b>Supervised</b><span>Regression, classification, XGBoost, LightGBM, CatBoost, ensembling</span></div>
+        <div class="topic"><b>Unsupervised</b><span>Clustering, anomaly detection, association rules</span></div>
+        <div class="topic"><b>Feature Engg.</b><span>Feature selection, PCA, LDA, autoencoders</span></div>
+        <div class="topic"><b>Deployment</b><span>Pickle, Joblib, ONNX, model serving</span></div>
+      </div></div>
+    </div>
+    <div class="mod">
+      <div class="mod-head"><div class="num">03</div><div class="info"><h3>Deep Learning & Neural Networks</h3><span class="weeks">5 weeks</span></div><span class="arrow">▾</span></div>
+      <div class="mod-body"><div class="mod-body-inner">
+        <div class="topic"><b>NN Fundamentals</b><span>Backpropagation, optimizers: SGD, Adam, RMSprop</span></div>
+        <div class="topic"><b>CNN / Vision</b><span>LeNet→ResNet, YOLOv8, U-Net, GANs</span></div>
+        <div class="topic"><b>RNN & Sequence</b><span>LSTM, GRU, sequence-to-sequence</span></div>
+        <div class="topic"><b>Frameworks</b><span>PyTorch & TensorFlow in production</span></div>
+      </div></div>
+    </div>
+    <div class="mod">
+      <div class="mod-head"><div class="num">04</div><div class="info"><h3>NLP & Large Language Models</h3><span class="weeks">5 weeks</span></div><span class="arrow">▾</span></div>
+      <div class="mod-body"><div class="mod-body-inner">
+        <div class="topic"><b>Traditional NLP</b><span>Tokenization, stemming, Word2Vec, GloVe</span></div>
+        <div class="topic"><b>Transformers & LLMs</b><span>Attention, GPT, BERT, prompt engineering, RAG</span></div>
+        <div class="topic"><b>Vector DBs</b><span>Pinecone, Weaviate, ChromaDB</span></div>
+        <div class="topic"><b>Hugging Face</b><span>Transformers, Datasets, Spaces ecosystem</span></div>
+      </div></div>
+    </div>
+    <div class="mod">
+      <div class="mod-head"><div class="num">05</div><div class="info"><h3>Generative AI & Latest Tech (2025-26)</h3><span class="weeks">4 weeks</span></div><span class="arrow">▾</span></div>
+      <div class="mod-body"><div class="mod-body-inner">
+        <div class="topic"><b>GenAI</b><span>Diffusion models, AI video & music generation</span></div>
+        <div class="topic"><b>AI Agents</b><span>Autonomous systems, agentic RAG, tool-use</span></div>
+        <div class="topic"><b>MLOps</b><span>CI/CD for ML, AWS SageMaker, Vertex AI, Azure ML</span></div>
+        <div class="topic"><b>Edge AI</b><span>Quantization, pruning, distillation, TinyML</span></div>
+      </div></div>
+    </div>
+    <div class="mod">
+      <div class="mod-head"><div class="num">06</div><div class="info"><h3>Capstone Projects & Career Prep</h3><span class="weeks">4 weeks</span></div><span class="arrow">▾</span></div>
+      <div class="mod-body"><div class="mod-body-inner">
+        <div class="topic"><b>Industry Projects</b><span>Choose 3: CV, NLP, GenAI, MLOps, multi-modal AI</span></div>
+        <div class="topic"><b>Placement Prep</b><span>Mock interviews, resume, LinkedIn, referrals</span></div>
+        <div class="topic"><b>Startup Prep</b><span>Validate idea, build MVP, pitch deck, raise funding</span></div>
+        <div class="topic"><b>Certification</b><span>Guaranteed project portfolio + certificate</span></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PATHS -->
+<section id="paths">
+  <div class="container center">
+    <span class="badge">Two Career Paths. One Goal.</span>
+    <h2 class="sec-title">Your Future, <span class="grad-text">Your Choice</span></h2>
+    <p class="sub">Every student finishes with a clear path forward — either a top job or your own startup.</p>
+  </div>
+  <div class="container paths">
+    <div class="path place reveal"><span class="tag">For Job Seekers</span><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#6C3CF0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:6px"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><h3>Placement Track</h3><ul>
+      <li>Placement guarantee or 50% fee refund</li><li>Resume & LinkedIn optimization</li><li>5 mock interviews with feedback</li><li>Direct referrals to hiring partners</li><li>12-month post-placement mentorship</li></ul>
+      <a class="btn btn-grad" href="#contact" style="margin-top:18px">Get Placed</a>
+    </div>
+    <div class="path startup reveal"><span class="tag">For Founders</span><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#6C3CF0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:6px"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg><h3>Startup Track</h3><ul>
+      <li>Company incorporation assistance</li><li>Investor introductions & fundraising</li><li>Pitch deck & financial modeling</li><li>Co-founder matching & networking</li><li>Legal & compliance support</li></ul>
+      <a class="btn btn-ghost" href="#contact" style="margin-top:18px">Launch My Startup</a>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section>
+  <div class="container center">
+    <span class="badge">From Learning to Earning</span>
+    <h2 class="sec-title">Your <span class="grad-text">Guaranteed</span> Journey</h2>
+  </div>
+  <div class="container journey-grid">
+    <div class="step reveal"><h4>Enroll & Learn</h4><p>Start from zero with live classes, recorded lectures, and 1-on-1 mentorship.</p></div>
+    <div class="step reveal"><h4>Build Portfolio</h4><p>Ship 25+ industry projects that prove you're job-ready and investor-ready.</p></div>
+    <div class="step reveal"><h4>Choose Your Path</h4><p>Pick Placement for a job, or Startup to incorporate and raise funding.</p></div>
+    <div class="step reveal"><h4>Guaranteed Success</h4><p>92% placement, or startup launch support. Your outcome is guaranteed.</p></div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products" class="apps-sec">
+  <div class="container center">
+    <span class="badge">Our Products</span>
+    <h2 class="sec-title">Apps We've <span class="grad-text">Built</span></h2>
+    <p class="sub">From offline Panchanga to AI-powered career tools — real, shipped Android apps built by We With All, used across India.</p>
+  </div>
+  <div class="container apps-grid">
+    <div class="app-card reveal tappable" onclick="openAppModal(0)">
+          <span class="glow"></span>
+          <div class="phone">
+            <img src="assets/shots/panchang/1.png" alt="Karnataka Panchang app"><div class="notch"></div><div class="bar"></div></div>
+          <div class="app-name">Karnataka <span class="grad">Panchang</span></div>
+          <div class="app-tagline">Offline Hindu Panchang 1991–2035 — Kannada & English, daily muhurta, nakshatra & festivals.</div>
+          <div class="app-tags"><span>Panchang</span><span>Offline</span><span>Kannada</span><span>Muhurta</span></div>
+          <a class="app-link" href="https://play.google.com/store/search?q=Karnataka%20Panchang" target="_blank" rel="noopener" onclick="event.stopPropagation()">Get App <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
         </div>
-        <p class="footer-bottom">© 2026 wewithall. All rights reserved. Built with ❤️ for India's future AI leaders.</p>
-    </footer>
+    <div class="app-card reveal tappable" onclick="openAppModal(1)">
+          <span class="glow"></span>
+          <div class="phone"><img src="assets/shots/guruji/1.png" alt="AI Guruji app"><div class="notch"></div><div class="bar"></div></div>
+      <div class="app-name">AI <span class="grad">Guruji</span></div>
+      <div class="app-tagline">Vedic astrology companion — Panchang, Kundli, Nakshatra, Muhurta, Mantra & Remedies, in Kannada & English.</div>
+      <div class="app-tags"><span>Kundli</span><span>Nakshatra</span><span>Muhurta</span><span>Bilingual</span></div>
+      <a class="app-link" href="https://play.google.com/store/search?q=AI%20Guruji" target="_blank" rel="noopener" onclick="event.stopPropagation()">Get App <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+    </div>
+    <div class="app-card reveal tappable" onclick="openAppModal(2)">
+          <span class="glow"></span>
+          <div class="phone"><img src="assets/shots/english/1.png" alt="We With All 4 Students app"><div class="notch"></div><div class="bar"></div></div>
+      <div class="app-name">4 <span class="grad">Students</span></div>
+      <div class="app-tagline">Learn to code — Python, C++, Web & AI/ML courses for kids and beginners, step by step.</div>
+      <div class="app-tags"><span>Coding</span><span>Courses</span><span>Kids</span><span>AI/ML</span></div>
+      <a class="app-link" href="https://play.google.com/store/search?q=We%20With%20All%204%20Students" target="_blank" rel="noopener" onclick="event.stopPropagation()">Get App <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+    </div>
+    <div class="app-card reveal tappable" onclick="openAppModal(3)">
+          <span class="glow"></span>
+          <div class="phone"><img src="assets/shots/career/1.png" alt="CareerPro AI app"><div class="notch"></div><div class="bar"></div></div>
+      <div class="app-name">CareerPro <span class="grad">AI</span></div>
+      <div class="app-tagline">Your AI career toolkit — resume builder, mock interview coach, skill gap analyzer & career finder.</div>
+      <div class="app-tags"><span>AI</span><span>Resume</span><span>Interview</span><span>Career</span></div>
+      <a class="app-link" href="https://play.google.com/store/search?q=CareerPro%20AI" target="_blank" rel="noopener" onclick="event.stopPropagation()">Get App <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+    </div>
+    <div class="app-card reveal tappable" onclick="openAppModal(4)">
+          <span class="glow"></span>
+          <div class="phone"><img src="assets/shots/govt/1.png" alt="Govt Jobs India app"><div class="notch"></div><div class="bar"></div></div>
+      <div class="app-name">Govt <span class="grad">Jobs</span></div>
+      <div class="app-tagline">Live Indian government job listings — UPSC, SSC, banking & more, with deadlines & eligibility.</div>
+      <div class="app-tags"><span>Jobs</span><span>UPSC</span><span>SSC</span><span>Banking</span></div>
+      <a class="app-link" href="https://play.google.com/store/search?q=Govt%20Jobs%20India" target="_blank" rel="noopener" onclick="event.stopPropagation()">Get App <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+    </div>
+  </div>
+</section>
+<section id="pricing">
+  <div class="container center">
+    <span class="badge">Fees & Plans</span>
+    <h2 class="sec-title">Invest in <span class="grad-text">Your Future</span></h2>
+    <p class="sub">Flexible EMI available. No hidden costs. Start from the AI Professional plan and upgrade anytime.</p>
+  </div>
+  <div class="container price-grid">
+    <div class="price reveal"><h3>AI Professional</h3><span class="billed">6-month AI/ML training</span><div class="amount">₹49,999<small> /course</small></div><ul>
+      <li>Complete 6-module AI/ML curriculum</li><li>25+ industry projects</li><li>Placement preparation</li><li>Resume & LinkedIn optimization</li><li>3 mock interviews</li></ul><a class="btn btn-ghost" href="#contact">Enroll Now</a></div>
 
-    <button class="back-to-top" id="backToTop">↑</button>
-    <script src="script.js"></script>
+    <div class="price pop reveal"><span class="pop-tag">Most Popular</span><h3>Career Guarantee</h3><span class="billed">/program</span><div class="amount">₹79,999<small> /program</small></div><ul>
+      <li>Everything in AI Professional</li><li>Placement guarantee or startup support</li><li>Company registration assistance</li><li>Fundraising & pitch deck training</li><li>5 mock interviews</li><li>12-month mentorship access</li><li>Post-placement support</li></ul><a class="btn btn-grad" href="#contact">Get Started</a></div>
+
+    <div class="price reveal"><h3>Startup Launchpad</h3><span class="billed">/all-inclusive</span><div class="amount">₹1,49,999<small> /all-inclusive</small></div><ul>
+      <li>Complete AI training + incorporation</li><li>Legal & compliance for 1 year</li><li>Investor introductions</li><li>Co-founder matching</li><li>Pitch deck & financial model</li><li>3 months free co-working space</li><li>₹10L+ cloud credits</li></ul><a class="btn btn-ghost" href="#contact">Launch Your Startup</a></div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="container center">
+    <span class="badge">Meet Your Mentors</span>
+    <h2 class="sec-title">Backed by <span class="grad-text">Industry Leaders</span></h2>
+  </div>
+  <div class="container team-grid">
+    <div class="member reveal"><div class="av">KN</div><h3>KD Nimitha</h3><div class="role">Chief Executive Officer (CEO)</div><div class="tags"><span>Placements</span><span>NLP</span><span>Computer Vision</span></div></div>
+    <div class="member reveal"><div class="av">AA</div><h3>Aayan</h3><div class="role">Chief Marketing Officer (CMO)</div><div class="tags"><span>Legal</span><span>Compliance</span><span>Fundraising</span></div></div>
+    <div class="member reveal"><div class="av">DS</div><h3>Divya Shree</h3><div class="role">Chief Financial Officer (CFO)</div><div class="tags"><span>Financial Modeling</span><span>Valuation</span><span>Investment Banking</span></div></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container center">
+    <span class="badge">FAQ</span>
+    <h2 class="sec-title">Frequently Asked <span class="grad-text">Questions</span></h2>
+  </div>
+  <div class="container faq">
+    <div class="faq-item open"><div class="faq-q">How does the placement guarantee work?<span class="fplus">+</span></div><div class="faq-a"><p>If you don't receive a job offer within 6 months of completing the program, we either refund 50% of your fees or help you launch your own startup with full incorporation support. Our placement rate is 92%.</p></div></div>
+    <div class="faq-item"><div class="faq-q">Do I need prior coding experience?<span class="fplus">+</span></div><div class="faq-a"><p>No! Our program starts from absolute basics. Module 1 covers Python from scratch. Many of our successful students came from non-tech backgrounds like commerce, arts, and biology.</p></div></div>
+    <div class="faq-item"><div class="faq-q">What kind of startups can I launch?<span class="fplus">+</span></div><div class="faq-a"><p>We support AI/ML-based startups across all sectors — healthcare, fintech, edtech, agritech, SaaS, and more. Our team helps you identify market opportunities and build an MVP.</p></div></div>
+    <div class="faq-item"><div class="faq-q">How do you help with fundraising?<span class="fplus">+</span></div><div class="faq-a"><p>We provide pitch deck templates, financial modeling tools, access to our investor database of 500+ angels and VCs, and warm introductions through our network.</p></div></div>
+    <div class="faq-item"><div class="faq-q">Is the program online or offline?<span class="fplus">+</span></div><div class="faq-a"><p>We offer both! Our hybrid model includes live online classes, recorded lectures, and optional in-person workshops in Bangalore, Mumbai, and Delhi NCR.</p></div></div>
+    <div class="faq-item"><div class="faq-q">What makes We With All different?<span class="fplus">+</span></div><div class="faq-a"><p>Unlike traditional institutes, we don't just teach — we guarantee outcomes. Plus our startup launchpad is unique: no other institute helps you incorporate a company and raise funding if you choose the entrepreneurial path.</p></div></div>
+  </div>
+</section>
+
+<!-- CONTACT / CTA -->
+<section id="contact" class="cta-sec">
+  <div class="container">
+    <div class="cta-card">
+      <span class="badge" style="margin:0 auto 16px;display:inline-flex">Get In Touch</span>
+      <h2>Start Your <span class="grad-text">AI Journey</span> Today</h2>
+      <p>Fill the form below and our career counselor will call you within 24 hours to discuss the best path for you.</p>
+      <form class="form" action="https://formsubmit.co/kdnimitha@wewithall.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="New Enquiry — WeWithAll Website">
+        <div class="row"><input type="text" name="name" placeholder="Full Name *" required><input type="email" name="email" placeholder="Email Address *" required></div>
+        <div class="row"><input type="tel" name="phone" placeholder="Phone Number"><select name="interest" required><option value="" disabled selected>I'm interested in... learning *</option><option>Getting a Job (Placement Track)</option><option>Launching a Startup</option><option>Both – I'm Undecided</option></select></div>
+        <textarea name="message" placeholder="Tell us about your background and goals..."></textarea>
+        <button class="btn btn-grad" type="submit" style="justify-content:center">Submit & Get Free Career Consultation →</button>
+      </form>
+      <p style="margin-top:26px;color:var(--muted)">Email: <a href="mailto:kdnimitha@wewithall.com" style="color:var(--cyan)">kdnimitha@wewithall.com</a> &nbsp;&nbsp;|&nbsp;&nbsp; Phone: <a href="tel:+918792381530" style="color:var(--cyan)">+91 8792381530</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot">
+      <div><div class="logo">We<span class="grad-text">WithAll</span></div><p style="margin-top:16px">Learn AI. Get Hired. Or Launch Your Startup. We guarantee your success with our dual-track career ecosystem.</p></div>
+      <div><h4>Quick Links</h4><ul><li><a href="#syllabus">Full Syllabus</a></li><li><a href="#paths">Career Paths</a></li><li><a href="#pricing">Fees & Pricing</a></li><li><a href="#contact">Startup Launchpad</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="mailto:kdnimitha@wewithall.com">kdnimitha@wewithall.com</a></li><li><a href="tel:+918792381530">+91 8792381530</a></li><li>Bangalore · Mumbai · Delhi NCR</li></ul></div>
+      <div><h4>Follow Us</h4><ul><li><a href="#">LinkedIn</a></li><li><a href="#">YouTube</a></li><li><a href="#">Instagram</a></li><li><a href="#">Twitter</a></li></ul></div>
+    </div>
+    <div class="copy">© 2026 We With All. All rights reserved. Built for India's future AI leaders.</div>
+  </div>
+</footer>
+
+<script>
+// ---- particle network background ----
+const cv=document.getElementById('net'),ctx=cv.getContext('2d');
+let W,H,pts=[];
+function resize(){W=cv.width=innerWidth;H=cv.height=innerHeight;const n=Math.min(90,Math.floor(innerWidth/14));pts=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.5,vy:(Math.random()-.5)*.5}));}
+addEventListener('resize',resize);resize();
+const colors=['108,60,240','30,120,210','46,158,85'];
+function draw(){ctx.clearRect(0,0,W,H);
+ for(let p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;}
+ for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const a=pts[i],b=pts[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<140){const o=1-d/140;ctx.strokeStyle='rgba('+colors[i%3]+','+(o*.4)+')';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
+ for(let p of pts){ctx.fillStyle='rgba('+colors[Math.floor(Math.random()*3)]+',.6)';ctx.beginPath();ctx.arc(p.x,p.y,2,0,7);ctx.fill();}
+ requestAnimationFrame(draw);}
+draw();
+
+// ---- nav scroll ----
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
+
+// ---- reveal on scroll (content visible by default; adds one-time entrance anim) ----
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// ---- counters (static value shown by default; counts up when animation confirmed) ----
+const cio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,end=+el.dataset.count;let c=0;const step=Math.max(1,Math.round(end/60));const t=setInterval(()=>{c+=step;if(c>=end){c=end;clearInterval(t)}el.textContent=c;},24);cio.unobserve(el);}),{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+
+// ---- syllabus accordion ----
+document.querySelectorAll('.mod-head').forEach(h=>h.addEventListener('click',()=>h.parentElement.classList.toggle('open')));
+
+// ---- faq accordion ----
+document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>q.parentElement.classList.toggle('open')));
+
+// ---- mobile menu ----
+document.getElementById('menuBtn').addEventListener('click',()=>{const l=document.getElementById('navLinks');l.style.display=l.style.display==='flex'?'none':'flex';l.style.flexDirection='column';l.style.position='absolute';l.style.top='64px';l.style.left='0';l.style.right='0';l.style.background='rgba(255,255,255,.97)';l.style.boxShadow='0 20px 50px rgba(20,24,60,.15)';l.style.borderBottom='1px solid var(--line)';l.style.padding='20px';l.style.gap='18px';});
+
+// ---- app detail modal data + logic ----
+const APP_DATA=[
+  {name:"Karnataka Panchang",tag:"Offline Calendar",
+   desc:"Complete offline Hindu Panchang and festival calendar covering 1991–2035 — daily tithi & nakshatra, sunrise/sunset, Rahu Kalam and festival dates, in Kannada and English.",
+   feat:["Offline 1991–2035","Kannada · English","Muhurta & nakshatra","Festival calendar"],
+   shots:["assets/shots/panchang/1.png","assets/shots/panchang/2.png","assets/shots/panchang/3.png"],
+   cta:"https://play.google.com/store/search?q=Karnataka%20Panchang"},
+  {name:"AI Guruji",tag:"Vedic Astrology",
+   desc:"Your personalised Vedic astrology companion — daily Panchang, Kundli charts, Nakshatra, Muhurta, Mantras and remedies, fully on-device and bilingual.",
+   feat:["Kundli & Panchang","Nakshatra & Muhurta","Mantra & Remedies","Kannada · English"],
+   shots:["assets/shots/guruji/1.png","assets/shots/guruji/2.png","assets/shots/guruji/3.png"],
+   cta:"https://play.google.com/store/search?q=AI%20Guruji"},
+  {name:"We With All 4 Students",tag:"Learn to Code",
+   desc:"Fun, step-by-step coding courses for students — Python, C++, Web Development and AI & Machine Learning, with bite-sized interactive lessons, streaks and XP rewards.",
+   feat:["Python · C++ · Web · AI/ML","Karaoke-style lessons","Streaks & XP rewards","Beginner friendly"],
+   shots:["assets/shots/english/1.png","assets/shots/english/2.png","assets/shots/english/3.png"],
+   cta:"https://play.google.com/store/search?q=We%20With%20All%204%20Students"},
+  {name:"CareerPro AI",tag:"Career Toolkit",
+   desc:"Your AI career growth toolkit — build an ATS-optimised resume in seconds, practise mock interviews with real-time feedback, find your ideal career path and close skill gaps. One-time ₹499.",
+   feat:["AI Resume Builder","Mock Interview Coach","Skill Gap Analyzer","₹499 one-time"],
+   shots:["assets/shots/career/1.png","assets/shots/career/2.png","assets/shots/career/3.png"],
+   cta:"https://play.google.com/store/search?q=CareerPro%20AI"},
+  {name:"Govt Jobs",tag:"Govt Jobs",
+   desc:"Live Indian government job notifications — UPSC, SSC, Bank, Railways and state exams with deadlines, eligibility, salaries and post counts, updated daily.",
+   feat:["UPSC · SSC · Banking","Deadline & eligibility","Salary & posts info","Daily updates"],
+   shots:["assets/shots/govt/1.png","assets/shots/govt/2.png","assets/shots/govt/3.png"],
+   cta:"https://play.google.com/store/search?q=Govt%20Jobs%20India"}
+];
+let curApp=0;
+function openAppModal(i){
+  curApp=i;const a=APP_DATA[i];
+  document.getElementById('amName').textContent=a.name;
+  document.getElementById('amTag').textContent=a.tag;
+  document.getElementById('amDesc').textContent=a.desc;
+  document.getElementById('amChips').innerHTML=a.feat.map(f=>`<span>${f}</span>`).join('');
+  document.getElementById('amMain').src=a.shots[0];
+  document.getElementById('amThumbs').innerHTML=a.shots.map((s,j)=>`<img src="${s}" class="${j===0?'active':''}" alt="${a.name} screenshot ${j+1}" onclick="setShot(${j})">`).join('');
+  document.getElementById('amCta').href=a.cta;
+  document.getElementById('appModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function setShot(j){
+  document.getElementById('amMain').src=APP_DATA[curApp].shots[j];
+  document.querySelectorAll('#amThumbs img').forEach((t,k)=>t.classList.toggle('active',k===j));
+}
+function closeAppModal(){
+  document.getElementById('appModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('appModal').addEventListener('click',e=>{if(e.target.id==='appModal')closeAppModal();});
+addEventListener('keydown',e=>{if(e.key==='Escape')closeAppModal();});
+</script>
+
+<!-- APP DETAIL MODAL -->
+<div class="modal-ov" id="appModal" role="dialog" aria-modal="true">
+  <div class="modal-box">
+    <button class="modal-x" onclick="closeAppModal()" aria-label="Close">&times;</button>
+    <h2 class="modal-h2" id="amName"></h2>
+    <span class="modal-tag" id="amTag"></span>
+    <p class="modal-desc" id="amDesc"></p>
+    <div class="modal-chips" id="amChips"></div>
+    <div class="modal-main"><img id="amMain" alt="App screenshot"></div>
+    <div class="modal-thumbs" id="amThumbs"></div>
+    <a class="modal-cta" id="amCta" href="#" target="_blank" rel="noopener">Get It On Play Store</a>
+  </div>
+</div>
 </body>
 </html>
